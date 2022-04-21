@@ -1,0 +1,7 @@
+{
+  "projects": {
+    "default": "saladejuegos-barraza",
+    "SaladeJuegos": "saladejuegos-barraza"
+  },
+  "targets": {}
+}
