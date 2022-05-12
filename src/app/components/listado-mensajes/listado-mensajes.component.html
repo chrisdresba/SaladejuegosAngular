@@ -1,0 +1,5 @@
+<ul>
+    <li *ngFor="let mensaje of listadoMensajes | async">
+      <span class="badge">{{mensaje.usuario}} {{mensaje.hora}} </span> : {{mensaje.mensaje}}<i class="fa fa-check"></i>
+    </li>
+</ul>

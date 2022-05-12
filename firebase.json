@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "./dist/saladejuegos",
+    "public": "dist/saladejuegos",
     "ignore": [
       "firebase.json",
       "**/.*",

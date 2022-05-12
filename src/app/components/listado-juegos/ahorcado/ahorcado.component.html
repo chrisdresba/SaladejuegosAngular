@@ -1,0 +1,25 @@
+<app-nav class="barraNav"></app-nav>
+<div id="container">
+    <div class="row">
+    <div class="col text-center font">
+        <img src="{{url}}" alt="ahorcado-img" class="ahorcado-img">
+        <div>
+            <h3 [hidden]="auth">Intentos <small> {{intentos}}/ 6</small></h3>
+            <button class="btn btn-outline-dark btn-recargar" [hidden]="auth2" type="button" (click)="recargar()"> Vuelve a intentar</button>
+        </div>
+
+    </div>
+</div>
+
+<div class="row">
+    <div class="col text-center box-palabra font">
+        <div *ngFor="let letra of palabraAuxiliar" class="box-letra">{{letra}}</div>
+    </div>
+</div>
+
+<div class="row teclado">
+    <div class="col text-center">
+        <button *ngFor="let letra of letras" class="btn btn-primary btn-letras" (click)="buscar(letra)"> {{ letra }} </button>
+    </div>
+</div>
+</div>

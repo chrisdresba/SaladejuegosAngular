@@ -1,25 +1,17 @@
 <app-nav class="barraNav"></app-nav>
+
 <div id="container">
-    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active" data-bs-slide="3000">
-            <img src="./../../../assets/img/imagen1.jpg" class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item" data-bs-slide="3000">
-            <img src="..." class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item" data-bs-slide="3000">
-            <img src="..." class="d-block w-100" alt="...">
-          </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
-  
+
+    <mdb-carousel [isControls]="false" class="carousel slide carousel-fade" [animation]="'fade'">
+      <mdb-carousel-item>
+        <img class="d-block w-100" src='../../../assets/img/carrusel1.png' alt="First slide">
+      </mdb-carousel-item>
+      <mdb-carousel-item>
+        <img class="d-block w-100" src='../../../assets/img/carrusel2.png' alt="Second slide">
+      </mdb-carousel-item>
+      <mdb-carousel-item>
+        <img class="d-block w-100" src='../../../assets/img/carrusel3.png' alt="Third slide">
+      </mdb-carousel-item>
+    </mdb-carousel>
+
 </div>

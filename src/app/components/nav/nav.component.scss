@@ -1,6 +1,8 @@
 *{
     box-sizing: content-box;
+    font-family: 'Poppins', sans-serif;
 }
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
 
 #menu{
     background-image: linear-gradient(to right, #243949 0%, #517fa4 100%);
@@ -22,7 +24,7 @@ a{
     top:0;
     right: 0;
     margin-top: 1rem;
-    margin-right: 8.5rem;
+    margin-right: 9rem;
 }
 
 .navUl{

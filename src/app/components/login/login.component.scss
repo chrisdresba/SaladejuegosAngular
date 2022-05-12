@@ -121,3 +121,10 @@ button:hover {
 	transform: scale(.6);
 }
 
+app-nav{
+	position: fixed;
+	width: 100%;
+}
+app-nav form{
+	display: none;
+}

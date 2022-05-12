@@ -2,7 +2,9 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    font-family: 'Poppins', sans-serif;
 }
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
 
 .barraNav{
 	position: absolute;
@@ -22,14 +24,11 @@
 }
 
 .main{
-	width: 80%;
-	margin-top: 40px;
-	height: 580px;
+	width: 90%;
     display: flex;
-	justify-content: space-around;
-    flex-direction: column;
+	justify-content: center;
     align-items: center;
-	overflow: hidden;
+	
 }
 
 
@@ -43,5 +42,17 @@ p{
 }
 
 img{
-	width: 100%;
+width:20rem;
+}
+
+.imagenCircular{
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+}
+
+.Perfil{
+	display: flex;
+	justify-content: center;
+    align-items: center;
 }

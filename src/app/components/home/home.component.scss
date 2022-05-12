@@ -7,7 +7,6 @@
 .barraNav{
 position: absolute;
 width: 100%;
-opacity: 0.9;
 }
 
 #container{
@@ -23,4 +22,8 @@ opacity: 0.9;
 
 h1{
     color: #fff;
+}
+
+mdb-carousel {
+	float: inline-end;
 }

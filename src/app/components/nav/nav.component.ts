@@ -24,8 +24,7 @@ export class NavComponent implements OnInit {
 
   constructor(public router: Router, public afAuth: AngularFireAuth) {
 
-    let dato = localStorage.getItem('ingresado');
-    if (dato == 'true') {
+    if (String(localStorage.getItem('usuario'))?.length > 0 && localStorage.getItem('usuario')?.length != undefined) {
       this.auth2 = true;
       this.usuarioLogin = String(localStorage.getItem('usuario'));
     } else {
@@ -45,7 +44,9 @@ export class NavComponent implements OnInit {
     signOut(auth).then(() => {
       this.usuarioLogin = '';
       localStorage.removeItem('ingresado');
+      localStorage.removeItem('usuario');
       this.auth2 = false;
+      this.router.navigate(['/home']);
     }).catch((error) => {
       console.info('Se produjo un error');
     });

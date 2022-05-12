@@ -1,0 +1,38 @@
+import { Injectable } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Observable } from 'rxjs';
+
+
+@Injectable({
+  providedIn: 'root'
+})
+export class ChatService {
+
+  public chats : Observable<any[]>;
+
+  constructor(private firestore: AngularFirestore) {
+    this.chats = this.firestore.collection('chats').valueChanges();
+   }
+ 
+  async guardarMensaje(usuario:any,mensaje:any){
+    let fecha = new Date();
+    let dia = fecha.getFullYear() + '-' + ( fecha.getMonth() + 1 ) + '-' + fecha.getDate();
+
+    let hora = fecha.getHours() + ':' + this.revision(fecha.getMinutes())+ ':' + this.revision(fecha.getSeconds());
+
+    let texto = {'usuario':usuario,'fecha':dia, 'hora':hora,'mensaje':mensaje}
+    return await this.firestore.collection('chats').add(texto);
+  }
+
+  async getMensajes(){
+    this.chats = this.firestore.collection('chats').valueChanges();
+  }
+
+  revision(dato : any){
+
+        if(dato<10){
+            return('0'+dato);
+        }
+        return dato;
+  }
+}
