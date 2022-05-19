@@ -9,6 +9,8 @@ import {AhorcadoComponent} from './components/listado-juegos/ahorcado/ahorcado.c
 import {MayormenorComponent} from './components/listado-juegos/mayormenor/mayormenor.component';
 import {PreguntadosComponent} from './components/listado-juegos/preguntados/preguntados.component';
 import {JuegopropioComponent} from './components/listado-juegos/juegopropio/juegopropio.component';
+import {EncuestaComponent} from './components/encuesta/encuesta.component';
+import {ResultadosComponent} from './components/resultados/resultados.component';
 
 const routes: Routes = [
   {
@@ -35,6 +37,14 @@ const routes: Routes = [
   {
     path: 'chat',
     component : ChatComponent 
+  },
+  {
+    path: 'encuesta',
+    component : EncuestaComponent 
+  },
+  {
+    path: 'resultados',
+    component : ResultadosComponent 
   },
   {
     path: 'juegos/ahorcado',

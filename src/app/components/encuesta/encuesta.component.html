@@ -1,0 +1,81 @@
+<app-nav class="barraNav"></app-nav>
+<div id="container">
+    <div class="columns" id="box">
+        <div class="col-md-8 order-md-1">
+            <h1 class="mb-3">Encuesta</h1>
+            <form class="needs-validation" novalidate>
+
+                <div class="row">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="firstName">Nombre</label>
+                            <input [(ngModel)]="nombre" type="text" class="form-control" name="nombre" placeholder=""
+                                value="" required />
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="firstName">Apellido</label>
+                            <input [(ngModel)]="apellido" type="text" class="form-control" name="nombre" placeholder=""
+                                value="" required />
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="lastName">Edad</label>
+                            <input type="text" class="form-control" [(ngModel)]="edad" name="edad" placeholder="Debe ser mayor de 18 años"
+                                value="" required />
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="lastName">Telefono</label>
+                            <input type="text" class="form-control" [(ngModel)]="telefono" name="cantidad"
+                                placeholder="Ingrese un número de 10 digitos" value="" required />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="tipo">Como fue tu experiencia</label>
+                            <br />
+                            <select name="tipo" [(ngModel)]="resp1" style="width:250px;">
+                                <option value="excelente">Excelente</option>
+                                <option value="buena">Buena</option>
+                                <option value="regular">Regular</option>
+                                <option value="disconforme">Disconforme</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="tipo">Que juegos preferís?</label>
+                            <div style="width:600px;height:70px;margin-left:-220px;">
+                                <label><input [(ngModel)]="resp2" type="radio" name="opcion"
+                                        value="arcade">Arcade</label>
+                                <label><input [(ngModel)]="resp2" type="radio" name="opcion"
+                                        value="estrategia">Estrategia</label>
+                            </div>
+                        </div>
+
+                        <div class="d-flex flex-column align-items-center">
+                            <h3>¿Cuales juegos te gustaron?</h3>
+                            <div class="col-12">
+                                <input type="checkbox" value="ahorcado" (change)="onCheckboxChange($event)">
+                                <label for="ahorcado">Ahorcado</label>
+                            </div>
+                            <div class="col-12">
+                                <input type="checkbox" value="Mayor o Menor" (change)="onCheckboxChange($event)">
+                                <label for="mayorMenor">Mayor o Menor</label>
+                            </div>
+                            <div class="col-12">
+                                <input type="checkbox" value="preguntados" (change)="onCheckboxChange($event)">
+                                <label for="preguntados">Preguntados</label>
+                            </div>
+                            <div class="col-12">
+                                <input type="checkbox" value="snake" (change)="onCheckboxChange($event)">
+                                <label for="keyboardattack">Snake</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary btn-lg btn-block" type="submit" (click)="guardarEncuesta()">
+                        Guardar Encuesta
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

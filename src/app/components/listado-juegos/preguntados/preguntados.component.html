@@ -1,4 +1,24 @@
 <app-nav class="barraNav"></app-nav>
 <div id="container">
-<p>preguntados works!</p>
+    <div class="col-11">
+        
+          <div class="card text-center box">
+              <h1  [hidden]="auth2"  style="font-weight: bold">PREGUNTADOS</h1>
+               <img [hidden]="auth2" src="../../assets/img/imagenPreguntados.png"  alt="" style="width: 85vh; height: 60vh; margin:0vh; ;filter:brightness(1.1);mix-blend-mode: multiply;">
+                <button [hidden]="auth2" (click)="comenzar()" >Comenzar</button>
+               <div [hidden]="!auth2" class="card-header bg-info ">
+                    <h4 class="text-center encabezado">{{pregunta}}</h4>
+               </div>	
+               <div [hidden]="!auth2" class="card-body text-center">
+                <img *ngIf="imagen" src="{{imagen}}"  alt="" style="width: 40vh; height: 25vh; margin:2vh; object-fit:cover;">
+               
+                    <div class="row text-center m-2" >
+                        <button (click)="oprimirBtn(0)" [ngStyle]="style" style="font-weight: bold;font-size: large;" id="btn1" type="button" class="btn btn-outline-primary m-1 col-lg-12 col-md-12 col-xs-12 ">{{opcion1}}</button>
+                        <button (click)="oprimirBtn(1)" [ngStyle]="style" style="font-weight: bold;font-size: large;" id="btn2" type="button" class="btn btn-outline-primary m-1 col-lg-12 col-md-12 col-xs-12 ">{{opcion2}}</button>
+                        <button (click)="oprimirBtn(2)" [ngStyle]="style" style="font-weight: bold;font-size: large;" id="btn3" type="button" class="btn btn-outline-primary m-1 col-lg-12 col-md-12 col-xs-12 ">{{opcion3}}</button>
+                        <button (click)="oprimirBtn(3)" [ngStyle]="style" style="font-weight: bold;font-size: large;" id="btn4" type="button" class="btn btn-outline-primary m-1 col-lg-12 col-md-12 col-xs-12 ">{{opcion4}}</button>
+                    </div>
+               </div>
+          </div>
+      </div>
 </div>

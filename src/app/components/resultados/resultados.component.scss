@@ -7,25 +7,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
 
 .barraNav{
-position: absolute;
-width: 100%;
-background:linear-gradient(to bottom, #463ca6, #c2c0d3, #343471);
-color: #fff;
+	position: absolute;
+	width: 100%;
 }
 
 #container{
 	margin: 0;
 	padding: 0;
 	display: flex;
-	justify-content:center;
+	justify-content: center;
 	align-items: center;
 	min-height: 100vh;
 	font-family: 'Jost', sans-serif;
 	background-image: linear-gradient(to right, #243949 0%, #517fa4 100%);
-	color: #fff;
+
 }
 
-h1{
+#box{
+	width: 90%;
+    display: flex;
+	justify-content: center;
+    align-items: center;
+	margin-top: -300px;
+    background-color:rgb(98, 158, 98);
+}
+
+
+th,td{
     color: #fff;
 }
-

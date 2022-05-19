@@ -1,0 +1,25 @@
+<app-nav class="barraNav"></app-nav>
+<h1>Resultados de Partida</h1>
+<div id="container">
+    <div id="box">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Usuario</th>
+                    <th>Puntaje</th>
+                    <th>Juego</th>
+                    <th>Fecha</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let resultado of listado">
+                    <td>{{resultado.usuario}}</td>
+                    <td>{{resultado.puntaje}}</td>
+                    <td>{{resultado.juego}}</td>
+                    <td>{{resultado.fecha}}</td>
+                </tr>
+        
+            </tbody>
+        </table>
+    </div>
+</div>

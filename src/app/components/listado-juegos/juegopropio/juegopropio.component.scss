@@ -14,18 +14,22 @@ color: #fff;
 }
 
 #container{
+	background: url("../../../../assets/img/fondoPropio.png") no-repeat center;
+	overflow: hidden;
 	margin: 0;
 	padding: 0;
 	display: flex;
 	justify-content:center;
 	align-items: center;
+	flex-direction: column;
 	min-height: 100vh;
 	font-family: 'Jost', sans-serif;
-	background-image: linear-gradient(to right, #243949 0%, #517fa4 100%);
-	color: #fff;
 }
 
-h1{
-    color: #fff;
-}
-
+canvas {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: rgb(199, 186, 220);
+  }
+  

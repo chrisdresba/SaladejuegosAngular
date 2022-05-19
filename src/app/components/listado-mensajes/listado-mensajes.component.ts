@@ -18,11 +18,6 @@ export class ListadoMensajesComponent implements OnInit {
   ngOnInit(): void {
   }
 
- /* guardarMensaje(mensaje: any) {
-
-    this.chat.guardarMensaje('mensajes', String(localStorage.getItem('usuario')), mensaje);
-  }*/
-
 }
 
 

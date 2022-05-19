@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { FormsModule,  ReactiveFormsModule,} from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { HttpClientModule } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +19,8 @@ import { PreguntadosComponent } from './components/listado-juegos/preguntados/pr
 import { JuegopropioComponent } from './components/listado-juegos/juegopropio/juegopropio.component';
 import { ChatComponent } from './components/chat/chat.component';
 import { ListadoMensajesComponent } from './components/listado-mensajes/listado-mensajes.component';
+import { EncuestaComponent } from './components/encuesta/encuesta.component';
+import { ResultadosComponent } from './components/resultados/resultados.component';
 
 
 
@@ -35,12 +37,15 @@ import { ListadoMensajesComponent } from './components/listado-mensajes/listado-
     PreguntadosComponent,
     JuegopropioComponent,
     ChatComponent,
-    ListadoMensajesComponent
+    ListadoMensajesComponent,
+    EncuestaComponent,
+    ResultadosComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,

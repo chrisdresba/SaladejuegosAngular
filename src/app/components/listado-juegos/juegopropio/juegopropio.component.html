@@ -1,4 +1,50 @@
 <app-nav class="barraNav"></app-nav>
-<div id="container">
-    <p>juegopropio works!</p>
+<div id="container" style="background-color: rgb(11, 11, 57)">
+
+  <div style="background-color: rgb(142, 205, 179);width: 80%; margin-top: 4rem;">
+    <div class="jumbotron pt-4 pb-4">
+      <h1 class="text-center" style="margin-top:1rem;">Snake Game</h1>
+    </div>
+
+    <div class="row justify-content-md-center">
+
+      <div class="col-md-6">
+        <div class="" style="margin-bottom: 1rem;margin-left:4rem">
+          <div class="card-body" style="margin:0;border:none;background-color: rgb(142, 205, 179)">
+            <canvas style="padding:0;" #canvas></canvas>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3" style="margin-left: 6rem;">
+        <div class="card">
+          <div class="card-header">Info</div>
+          <div class="card-body">
+            <strong class="h2">Puntaje: {{game.score}}</strong><br>
+          </div>
+        </div>
+
+        <div class="card mt-4">
+          <div class="card-header">Opciones</div>
+          <div class="card-body" style="margin:0.5rem">
+            <button class="btn btn-primary btn-block" (click)="game.isRunning() ? game.stop() : game.start()"
+              style="margin-right:10px">
+              {{game.isRunning() ? 'Detener' : 'Iniciar'}}
+            </button>
+            <button class="btn btn-warning btn-block " (click)="game.restart()">Reiniciar</button>
+
+            <div class="input-group mb-2" style="margin-top:0.5rem">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="speed">Speed</span>
+              </div>
+              <input type="number" [(ngModel)]="gameSpeed" class="form-control" placeholder="Speed" aria-label="Speed"
+                aria-describedby="speed" min="100" step="50">
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div> 
 </div>
