@@ -20,6 +20,10 @@ export class ResultadosComponent implements OnInit {
       this.listado = this.listado.sort((a?, b?) => (a.puntaje! < b.puntaje! ? 1 : -1));
     })
     
+    setTimeout(()=>{
+
+    })
+    
   }
 
 }

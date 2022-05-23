@@ -8,14 +8,9 @@ import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { QuienSoyComponent } from './components/quien-soy/quien-soy.component';
 import { NavComponent } from './components/nav/nav.component';
-import { JuegosComponent } from './components/juegos/juegos.component';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
-import { AhorcadoComponent } from './components/listado-juegos/ahorcado/ahorcado.component';
-import { MayormenorComponent } from './components/listado-juegos/mayormenor/mayormenor.component';
-import { PreguntadosComponent } from './components/listado-juegos/preguntados/preguntados.component';
-import { JuegopropioComponent } from './components/listado-juegos/juegopropio/juegopropio.component';
 import { ChatComponent } from './components/chat/chat.component';
 import { ListadoMensajesComponent } from './components/listado-mensajes/listado-mensajes.component';
 import { EncuestaComponent } from './components/encuesta/encuesta.component';
@@ -32,11 +27,6 @@ import { CookieService } from 'ngx-cookie-service';
     HomeComponent,
     QuienSoyComponent,
     NavComponent,
-    JuegosComponent,
-    AhorcadoComponent,
-    MayormenorComponent,
-    PreguntadosComponent,
-    JuegopropioComponent,
     ChatComponent,
     ListadoMensajesComponent,
     EncuestaComponent,

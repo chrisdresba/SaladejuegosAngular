@@ -3,7 +3,6 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Resultados } from '../Entidades/resultados';
-import { PreguntadosComponent } from '../components/listado-juegos/preguntados/preguntados.component';
 
 @Injectable({
   providedIn: 'root'

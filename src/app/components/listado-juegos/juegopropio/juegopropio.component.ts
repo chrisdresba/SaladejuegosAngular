@@ -14,6 +14,7 @@ export class JuegopropioComponent implements OnInit {
   get gameSpeed() {
     return this._gameSpeed;
   }
+  
   set gameSpeed(speed: number) {
     this._gameSpeed = speed;
     this.game.setGameSpeed(speed);

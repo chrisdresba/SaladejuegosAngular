@@ -1,10 +1,9 @@
-<app-nav class="barraNav"></app-nav>
 <div id="container">
 	<div class="main">
 		<input type="checkbox" id="chk" aria-hidden="true">
 
 		<div class="login">
-			<form >
+			<form>
 				<label for="chk" aria-hidden="true" class="title">Iniciar Sesion</label>
 				<input type="email" name="email" placeholder="Email" required="" [(ngModel)]="email">
 				<input type="password" name="pswd" placeholder="Contraseña" [(ngModel)]="password" required="">
@@ -13,16 +12,17 @@
 					<button class="btnAccesoRapido" (click)="ingresarInvitado()">Acceso Invitado</button>
 					<button class="btnAccesoRapido" (click)="ingresarAdmin()">Acceso Admin</button>
 				</div>
-			
+
 			</form>
 		</div>
 
 		<div class="signup">
-			<form >
+			<form>
 				<label for="chk" aria-hidden="true">Registrate</label>
 				<input type="text" name="text" placeholder="Nombre Completo" [(ngModel)]="nombreUsuario" required="">
 				<input type="email" name="email" placeholder="Email" [(ngModel)]="emailRegistro" required="">
-				<input type="password" name="pswd" placeholder="Contraseña (min. 6 caract.)" [(ngModel)]="passwordRegistro" required="">
+				<input type="password" name="pswd" placeholder="Contraseña (min. 6 caract.)"
+					[(ngModel)]="passwordRegistro" required="">
 				<button (click)="guardar()">Registrar</button>
 				<button class="btnAccesoRapido" (click)="registrarInvitado()">Registrar Invitado</button>
 

@@ -4,11 +4,6 @@ import {LoginComponent} from './components/login/login.component';
 import {HomeComponent} from './components/home/home.component';
 import {ChatComponent} from './components/chat/chat.component';
 import {QuienSoyComponent} from './components/quien-soy/quien-soy.component';
-import {JuegosComponent} from './components/juegos/juegos.component';
-import {AhorcadoComponent} from './components/listado-juegos/ahorcado/ahorcado.component';
-import {MayormenorComponent} from './components/listado-juegos/mayormenor/mayormenor.component';
-import {PreguntadosComponent} from './components/listado-juegos/preguntados/preguntados.component';
-import {JuegopropioComponent} from './components/listado-juegos/juegopropio/juegopropio.component';
 import {EncuestaComponent} from './components/encuesta/encuesta.component';
 import {ResultadosComponent} from './components/resultados/resultados.component';
 import { GuardGuard } from './guard/guard.guard';
@@ -36,26 +31,8 @@ const routes: Routes = [
   },
   {
     path: 'juegos',
-    component : JuegosComponent,
-    canActivate: [GuardGuard],
-    //children:
-  },{
-        path: 'juegos/ahorcado',
-        component : AhorcadoComponent
-      },
-      {
-        path: 'juegos/mayormenor',
-        component :MayormenorComponent
-      },
-      {
-        path: 'juegos/preguntados',
-        component :PreguntadosComponent
-      },
-      {
-        path: 'juegos/juegopropio',
-        component :JuegopropioComponent
-      }
-  ,
+    loadChildren: () => import('./components/juegos/juegos.module').then(m => m.JuegosModule)
+  },
   {
     path: 'chat',
     component : ChatComponent 
