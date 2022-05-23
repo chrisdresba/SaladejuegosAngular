@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
+import { Mensaje } from 'src/app/Entidades/mensaje';
 import { ChatService } from 'src/app/services/chat.service';
 
 @Component({
@@ -9,10 +10,16 @@ import { ChatService } from 'src/app/services/chat.service';
 })
 export class ListadoMensajesComponent implements OnInit {
 
-  listadoMensajes: Observable<any[]>;
-  constructor(public chat: ChatService) {
-    this.listadoMensajes = chat.chats;
+  listadoMensajes: Observable<Mensaje[]>;
 
+  constructor(public chat: ChatService) {
+
+    this.listadoMensajes = chat.chats;
+    this.listadoMensajes = this.listadoMensajes.pipe(
+      map(docs => {
+        return docs.sort((a?, b?) => (((a.fecha! > b.fecha!) || (a.fecha! == b.fecha! && a.hora! < b.hora!)) ? 1 : -1));
+      })
+    );
   }
 
   ngOnInit(): void {

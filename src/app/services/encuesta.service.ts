@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { map, Observable } from 'rxjs';
+import { Encuesta } from '../Entidades/encuesta';
 
 @Injectable({
   providedIn: 'root',
@@ -12,6 +13,14 @@ export class EncuestaService {
     this.listadoEncuestas = this.firestore
       .collection('encuestas')
       .valueChanges();
+  }
+
+  getEncuestas = (): Observable<any[]> => {
+    return this.firestore.collection('encuestas').snapshotChanges().pipe(
+      map(docs => {
+        return docs.map(d => d.payload.doc.data()) as Encuesta[];
+      })
+    );
   }
 
   async guardarEncuesta(

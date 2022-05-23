@@ -8,6 +8,7 @@ import {
 import { EncuestaService } from './../../services/encuesta.service';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -28,30 +29,23 @@ export class EncuestaComponent implements OnInit {
   resp2: string = '';
   resp3: any = [];
 
-  
 
-  constructor(public serv: EncuestaService, public fb: FormBuilder, public afAuth: AngularFireAuth) {
+  constructor(public serv: EncuestaService, public router: Router, public fb: FormBuilder, public afAuth: AngularFireAuth) {
     this.formulario = this.fb.group({
-      'nombre': new FormControl('', Validators.required),
-      'apellido': new FormControl('', Validators.required),
-      'edad': new FormControl('', Validators.required),
-      'telefono': new FormControl('',Validators.required),
-      'resp1': new FormControl('', Validators.required),
-      'resp2': new FormControl('', Validators.required),
-      'resp3': new FormControl('', Validators.required)
+      'nombre': ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
+      'apellido': ['', [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
+      'edad': ['', [Validators.required, Validators.min(18), Validators.max(120)]],
+      'telefono': ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
+      'resp1': ['', Validators.required],
+      'resp2': ['', Validators.required],
+      'resp3': ['', Validators.required]
     });
+
   }
 
   ngOnInit(): void {
-    this.usuario = this.afAuth.onAuthStateChanged(user =>{
-      if(!user){
-        this.email = 'anonimo';
-        }else{
-          this.usuario = user;
-          this.email = this.usuario.email;
-        }
-   })
-  } 
+
+  }
 
   onCheckboxChange(event: any) {
     if (event.target.checked) {
@@ -60,10 +54,18 @@ export class EncuestaComponent implements OnInit {
   }
 
   guardarEncuesta() {
+
+    this.usuario = this.afAuth.onAuthStateChanged(user => {
+      if (user) {
+        this.usuario = user;
+        this.email = this.usuario.email;
+      }
+    })
+
     if (
       !this.nombre ||
       !this.apellido ||
-      (!(this.edad<99 && this.edad>=18))||
+      (!(this.edad < 99 && this.edad >= 18)) ||
       this.telefono.length != 10 ||
       !this.resp1 ||
       !this.resp2 ||
@@ -75,9 +77,8 @@ export class EncuestaComponent implements OnInit {
         showConfirmButton: false,
         timer: 1500,
       });
-   
-    } else {
 
+    } else {
 
       this.serv.guardarEncuesta(
         this.email,
@@ -96,6 +97,12 @@ export class EncuestaComponent implements OnInit {
         showConfirmButton: false,
         timer: 1500,
       });
+
+      setTimeout(() => {
+        this.router.navigate(['/home']);
+      }, 3000)
+
+
     }
   }
 

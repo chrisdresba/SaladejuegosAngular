@@ -3,13 +3,7 @@ import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { getAuth, signOut } from "firebase/auth";
 
-
-import {
-  FormGroup,
-  FormControl,
-  Validators,
-  FormBuilder
-} from '@angular/forms';
+import { AutentificadorService } from 'src/app/services/autentificador.service';
 
 @Component({
   selector: 'app-nav',
@@ -18,21 +12,35 @@ import {
 })
 export class NavComponent implements OnInit {
 
+  usuario: any;
+  rol: any;
   public usuarioLogin: string = '';
   public tituloBtn: string = '';
-  public auth2: boolean;
+  public auth2: boolean = false;
+  public admin: boolean = false;
 
-  constructor(public router: Router, public afAuth: AngularFireAuth) {
 
-    if (String(localStorage.getItem('usuario'))?.length > 0 && localStorage.getItem('usuario')?.length != undefined) {
-      this.auth2 = true;
-      this.usuarioLogin = String(localStorage.getItem('usuario'));
-    } else {
-      this.auth2 = false;
-    }
+  constructor(public router: Router, public afAuth: AngularFireAuth, public servicioAuth: AutentificadorService) {
+
   }
 
   ngOnInit(): void {
+    if (localStorage.getItem('sesionSalaRol')) {
+      this.rol = localStorage.getItem('sesionSalaRol');
+      if (this.rol == 'admin') {
+        this.admin = true;
+      }
+    }
+    this.usuario = this.afAuth.onAuthStateChanged(user => {
+      if (!user) {
+        this.auth2 = false;
+      } else {
+        this.auth2 = true;
+        this.usuario = user;
+        this.usuarioLogin = this.usuario.email;
+      }
+    }
+    )
   }
 
   async redirigirLogin() {
@@ -43,12 +51,14 @@ export class NavComponent implements OnInit {
     const auth = getAuth();
     signOut(auth).then(() => {
       this.usuarioLogin = '';
-      localStorage.removeItem('ingresado');
-      localStorage.removeItem('usuario');
+      this.servicioAuth.desloguearse();
+      localStorage.removeItem('sesionSala');
+      localStorage.removeItem('sesionSalaRol');
       this.auth2 = false;
+      this.admin = false;
       this.router.navigate(['/home']);
     }).catch((error) => {
-      console.info('Se produjo un error');
+
     });
   }
 

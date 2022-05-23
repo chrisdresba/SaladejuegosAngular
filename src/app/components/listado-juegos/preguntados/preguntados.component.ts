@@ -6,6 +6,9 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { PaisService } from 'src/app/services/apiservice.service';
 import { Pais } from 'src/app/Entidades/pais';
 import { ThisReceiver } from '@angular/compiler';
+import { DatePipe } from '@angular/common';
+import { Resultados } from 'src/app/Entidades/resultados';
+import { ResultadosService } from 'src/app/services/resultados.service';
 
 
 
@@ -110,38 +113,38 @@ export class PreguntadosComponent implements OnInit {
   npreguntas = []
 
   posibles_respuestas: any[] = [];
-
-  suspender_botones = false;
-
-  preguntas_hechas = 0
-  preguntas_correctas = 0
-  preguntas_incorrectas = 0;
-
-  jugador = {
-    email: '',
-    ganadas: 0,
-    perdidas: 0
-  }
-
+  public auth2: boolean = false;
   public paises?: Pais[];
   jugadores: any | [];
-  user: any;
-  public auth2: boolean = false;
+  usuario: any;
+  email: string = '';
+  juego: string = 'preguntados';
+  fecha: any;
+  puntaje: number = 0;
+  intentos: number = 5;
 
 
-  constructor(private service: PaisService, public afAuth: AngularFireAuth, private router: Router) {
+  constructor(public serv: ResultadosService, private service: PaisService, public afAuth: AngularFireAuth, private router: Router) {
     this.service.traerPaises().subscribe((paises: any) => {
       this.paises = paises.slice(0, 249);
     })
   }
 
-  comenzar(){
+
+  comenzar() {
     this.escogerPreguntaAleatoria();
     this.auth2 = true;
   }
 
-  ngOnInit() {
-
+  ngOnInit(): void {
+    this.usuario = this.afAuth.onAuthStateChanged(user => {
+      if (!user) {
+        this.email = 'anonimo';
+      } else {
+        this.usuario = user;
+        this.email = this.usuario.email;
+      }
+    })
   }
 
   elegirPregunta(n: number) {
@@ -198,24 +201,48 @@ export class PreguntadosComponent implements OnInit {
 
       Swal.fire({
         icon: 'success',
-        title: 'EXCELENTE',
+        title: 'EXCELENTE +20',
         showConfirmButton: false,
         timer: 1000
       })
-      this.jugador.ganadas++
+      this.puntaje = this.puntaje + 20;
 
       this.escogerPreguntaAleatoria()
     } else {
-      Swal.fire({
-        icon: 'warning',
-        title: 'INCORRECTO',
-        showConfirmButton: false,
-        timer: 1000
-      })
-      this.jugador.perdidas++
+
+      this.intentos--;
+      if (this.intentos != 0) {
+        Swal.fire({
+          icon: 'warning',
+          title: 'INCORRECTO',
+          showConfirmButton: false,
+          timer: 1000
+        })
+      } else {
+        this.finDePartida();
+      }
+
 
       this.escogerPreguntaAleatoria()
     }
   }
 
+  finDePartida() {
+    this.guardarResultado();
+    this.puntaje = 0;
+    this.intentos = 5;
+    Swal.fire({
+      icon: 'error',
+      title: 'Perdiste, vuelve a intentarlo',
+      showConfirmButton: false,
+      timer: 3000,
+    });
+  }
+  guardarResultado() {
+    let pipe = new DatePipe('en-US');
+    this.fecha = String(pipe.transform(Date.now(), 'dd/MM/yyyy'));
+    let resultado = new Resultados();
+    resultado.crearResultado(this.email, this.puntaje, this.juego, this.fecha);
+    this.serv.guardarResultado(resultado);
+  }
 }

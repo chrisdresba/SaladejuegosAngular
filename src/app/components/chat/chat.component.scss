@@ -7,12 +7,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
 
-.barraNav {
-	position: absolute;
-	width: 100%;
-	background: linear-gradient(to bottom, #463ca6, #c2c0d3, #343471);
-	color: #fff;
-}
 
 #container {
 	margin: 0;
@@ -62,20 +56,20 @@ h1 {
 	width: 200px !important;
 }
 
-.no-sesion{
+.no-sesion {
 	display: flex;
 	margin: 0;
 	justify-content: center;
 	align-items: center;
 }
 
-h1{
+h1 {
 	font-size: 4rem;
 }
 
-button{
+button {
 	width: 8rem;
 	height: 3rem;
 	border-radius: 2rem;
-	background-color:#0d6efd;
+	background-color: #0d6efd;
 }

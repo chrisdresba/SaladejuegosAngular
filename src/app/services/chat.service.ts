@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
+import { Mensaje } from '../Entidades/mensaje';
 
 
 @Injectable({
@@ -25,7 +26,12 @@ export class ChatService {
   }
 
   async getMensajes(){
-    this.chats = this.firestore.collection('chats').valueChanges();
+
+    return this.firestore.collection('chats').snapshotChanges().pipe(
+      map(docs => {
+        return docs.map(d => d.payload.doc.data()) as Mensaje[];
+      })
+    );
   }
 
   revision(dato : any){

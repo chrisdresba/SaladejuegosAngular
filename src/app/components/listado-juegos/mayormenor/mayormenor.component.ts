@@ -17,8 +17,8 @@ export class MayormenorComponent implements OnInit {
   public random: number = 0;
   public puntaje: number = 0;
   public mensaje?: string;
-  public oportunidades: number = 5;
-  public juego:string = 'Mayor o Menor';
+  public intentos: number = 5;
+  public juego: string = 'mayor o menor';
   usuario: any;
   email: string = '';
   fecha?: string = '';
@@ -43,65 +43,77 @@ export class MayormenorComponent implements OnInit {
   }
 
   reiniciar() {
-    if (this.oportunidades == 0) {
-
-      let pipe = new DatePipe('en-US');
-      this.fecha = String(pipe.transform(Date.now(), 'dd/MM/yyyy'));
-      let resultado = new Resultados();
-      resultado.crearResultado(this.email,this.puntaje,this.juego,this.fecha);
-      this.serv.guardarResultado(resultado);
-
+    setTimeout(() => {
+      this.mensaje = "";
+      this.carta1 = this.random;
+      this.carta2 = "";
       this.puntaje = 0;
-      Swal.fire({
-        icon: 'warning',
-        title: 'Vuelve a intentarlo',
-        showConfirmButton: false,
-        timer: 1500,
-      });
-    
-
-      setTimeout(() => {
-        this.mensaje = "";
-        this.carta1 = this.random;
-        this.carta2 = ""
-      }, 3000)
-    }
+      this.intentos = 5;
+    }, 3000)
   }
 
   menor() {
     this.partida();
 
     if (this.carta1 > this.random) {
-      this.mensaje = "Excelente";
-      this.puntaje++;
+      this.mensaje = "Acertaste";
+      this.puntaje = this.puntaje + 5;
+    } else if (this.carta1 == this.random) {
     } else {
       this.mensaje = "Fallaste";
-      this.oportunidades--;
+      this.intentos--;
     }
 
-
-    setTimeout(() => {
-      this.mensaje = "";
-      this.carta1 = this.random;
-      this.carta2 = ""
-    }, 3000)
+    if (this.intentos != 0) {
+      setTimeout(() => {
+        this.mensaje = "";
+        this.carta1 = this.random;
+        this.carta2 = ""
+      }, 3000)
+    } else {
+      this.finDePartida();
+    }
   }
 
   mayor() {
     this.partida();
 
     if (this.carta1 < this.random) {
-      this.mensaje = "Excelente";
-      this.puntaje++;
+      this.mensaje = "Acertaste";
+      this.puntaje = this.puntaje + 5;
+    } else if (this.carta1 == this.random) {
     } else {
       this.mensaje = "Fallaste";
-      this.oportunidades--;
+      this.intentos--;
     }
 
-    setTimeout(() => {
-      this.mensaje = "";
-      this.carta1 = this.random;
-      this.carta2 = ""
-    }, 3000)
+    if (this.intentos != 0) {
+      setTimeout(() => {
+        this.mensaje = "";
+        this.carta1 = this.random;
+        this.carta2 = ""
+      }, 3000)
+    } else {
+      this.finDePartida();
+    }
+  }
+
+  finDePartida() {
+    this.guardarResultado();
+    this.puntaje = 0;
+    Swal.fire({
+      icon: 'warning',
+      title: 'Vuelve a intentarlo',
+      showConfirmButton: false,
+      timer: 3000,
+    });
+    this.reiniciar();
+  }
+  guardarResultado() {
+    let pipe = new DatePipe('en-US');
+    this.fecha = String(pipe.transform(Date.now(), 'dd/MM/yyyy'));
+    let resultado = new Resultados();
+    resultado.crearResultado(this.email, this.puntaje, this.juego, this.fecha);
+    this.serv.guardarResultado(resultado);
   }
 }

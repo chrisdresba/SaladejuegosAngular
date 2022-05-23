@@ -1,0 +1,31 @@
+<div id="container">
+    <div id="box">
+        <table class="table ">
+            <thead>
+                <tr style="background-color:rgb(10, 10, 10);">
+                    <th>Usuario</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Edad</th>
+                    <th>Telefono</th>
+                    <th>Experiencia</th>
+                    <th>Preferencias/Tipo</th>
+                    <th>Favoritos</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let enc of listado">
+                    <td>{{enc.usuario}}</td>
+                    <td>{{enc.nombre}}</td>
+                    <td>{{enc.apellido}}</td>
+                    <td>{{enc.edad}}</td>
+                    <td>{{enc.telefono}}</td>
+                    <td>{{enc.RespuestaExperiencia}}</td>
+                    <td>{{enc.RespuestaPreferencias}}</td>
+                    <td>{{enc.RespuestaJuegos}}</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>

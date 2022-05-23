@@ -11,6 +11,10 @@ import {PreguntadosComponent} from './components/listado-juegos/preguntados/preg
 import {JuegopropioComponent} from './components/listado-juegos/juegopropio/juegopropio.component';
 import {EncuestaComponent} from './components/encuesta/encuesta.component';
 import {ResultadosComponent} from './components/resultados/resultados.component';
+import { GuardGuard } from './guard/guard.guard';
+import { Page404Component } from './components/page404/page404.component';
+import { EncuestasComponent } from './components/encuestas/encuestas.component';
+import { RolesGuard } from './guard/roles.guard';
 
 const routes: Routes = [
   {
@@ -28,39 +32,51 @@ const routes: Routes = [
   },
   {
     path: 'quiensoy',
-    component : QuienSoyComponent 
+    component : QuienSoyComponent
   },
   {
     path: 'juegos',
-    component : JuegosComponent 
-  },
+    component : JuegosComponent,
+    canActivate: [GuardGuard],
+    //children:
+  },{
+        path: 'juegos/ahorcado',
+        component : AhorcadoComponent
+      },
+      {
+        path: 'juegos/mayormenor',
+        component :MayormenorComponent
+      },
+      {
+        path: 'juegos/preguntados',
+        component :PreguntadosComponent
+      },
+      {
+        path: 'juegos/juegopropio',
+        component :JuegopropioComponent
+      }
+  ,
   {
     path: 'chat',
     component : ChatComponent 
   },
   {
     path: 'encuesta',
-    component : EncuestaComponent 
+    component : EncuestaComponent,
+    canActivate: [GuardGuard],
   },
   {
     path: 'resultados',
-    component : ResultadosComponent 
+    component : ResultadosComponent,
   },
   {
-    path: 'juegos/ahorcado',
-    component : AhorcadoComponent
+    path: 'encuestas',
+    component : EncuestasComponent,
+    canActivate: [RolesGuard], 
   },
   {
-    path: 'juegos/mayormenor',
-    component :MayormenorComponent
-  },
-  {
-    path: 'juegos/preguntados',
-    component :PreguntadosComponent
-  },
-  {
-    path: 'juegos/juegopropio',
-    component :JuegopropioComponent
+    path: '**',
+    component :Page404Component
   }
 ];
 

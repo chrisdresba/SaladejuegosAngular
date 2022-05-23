@@ -10,7 +10,6 @@ import { ResultadosService } from 'src/app/services/resultados.service';
 export class ResultadosComponent implements OnInit {
 
   @Input() public listado? : Resultados[];
-  @Output() actorSeleccionado: EventEmitter<any>= new EventEmitter<any>(); 
   constructor(public act: ResultadosService) { 
     this.listado = [];
   }
@@ -18,7 +17,9 @@ export class ResultadosComponent implements OnInit {
   ngOnInit(): void {
     this.act.getResultados().subscribe(aux => {
       this.listado = aux;
+      this.listado = this.listado.sort((a?, b?) => (a.puntaje! < b.puntaje! ? 1 : -1));
     })
+    
   }
 
 }

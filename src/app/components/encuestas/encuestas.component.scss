@@ -1,0 +1,38 @@
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+	font-family: 'Poppins', sans-serif;
+
+
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+
+
+#container {
+	margin: 0;
+	padding: 0;
+	display: flex;
+	min-height: 100vh;
+	font-family: 'Jost', sans-serif;
+    background: #005C97; 
+    background: -webkit-linear-gradient(to right, #363795, #005C97);  
+    background: linear-gradient(to right, #363795, #005C97);
+    
+}
+
+
+#box {
+	display: flex;
+	width: 100%;
+	padding: 1rem;
+	margin: 2rem;
+	margin-top: 4rem;
+}
+
+th,
+td {
+	color: #fff;
+	font-weight: 600;
+}

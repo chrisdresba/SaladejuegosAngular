@@ -1,4 +1,8 @@
+import { DatePipe } from '@angular/common';
 import { Injectable } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { Resultados } from 'src/app/Entidades/resultados';
+import { ResultadosService } from 'src/app/services/resultados.service';
 import Swal from 'sweetalert2';
 import { DrawService } from './draw.service';
 import { SnakeService, Direction, TurnResult } from './snake.service';
@@ -23,9 +27,11 @@ export class GameService {
   draw!: DrawService;
   gameLoop: any;
   keydownListener!: EventListener;
-  score = 0;
+  puntaje = 0;
+  usuario:any;
+  email:string='';
 
-  constructor(private snake: SnakeService) {
+  constructor(private snake: SnakeService,public serv: ResultadosService,public afAuth: AngularFireAuth) {
     this.config = {
       horizontalBlocks: 20,
       verticalBlocks: 20,
@@ -37,17 +43,20 @@ export class GameService {
     };
     this.snake.options = this.config.options;
     this.snake.generateSnack(this.config);
+    this.usuario = this.afAuth.onAuthStateChanged(user => {
+      if (!user) {
+        this.email = 'anonimo';
+      } else {
+        this.usuario = user;
+        this.email = this.usuario.email;
+      }
+    })
   }
+ 
 
   gameOver() {
-    this.score = 0;
-
-    Swal.fire({
-      icon: 'warning',
-      title: 'Vuelve a intentar',
-      showConfirmButton: false,
-      timer: 1500
-    })
+    this.finPartida();
+    this.puntaje = 0;
   }
 
   isRunning() {
@@ -94,7 +103,7 @@ export class GameService {
 
   restart() {
     this.stop();
-    this.score = 0;
+    this.puntaje = 0;
     this.snake.initStartingPosition();
     this.snake.generateSnack(this.config);
     this.start();
@@ -140,11 +149,28 @@ export class GameService {
           this.gameOver();
           break;
         case TurnResult.EatingSnack:
-          this.score++;
+          this.puntaje = this.puntaje + 2;
           break;
       }
 
       this.drawGame();
     }, this.config.gameSpeed);
+  }
+
+  finPartida() {
+    this.saveResult();
+    Swal.fire({
+      icon: 'error',
+      title: 'Perdiste, vuelve a intentarlo',
+      showConfirmButton: false,
+      timer: 3000,
+    });
+  }
+  saveResult() {
+    let pipe = new DatePipe('en-US');
+    let fecha = String(pipe.transform(Date.now(), 'dd/MM/yyyy'));
+    let resultado = new Resultados();
+    resultado.crearResultado(this.email, this.puntaje,'snake', fecha);
+    this.serv.guardarResultado(resultado);
   }
 }

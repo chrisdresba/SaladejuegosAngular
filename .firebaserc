@@ -2,7 +2,8 @@
   "projects": {
     "default": "saladejuegos-barraza",
     "SaladeJuegos": "saladejuegos-barraza",
-    "Saladejuegos": "saladejuegos-barraza"
+    "Saladejuegos": "saladejuegos-barraza",
+    "SalaDeJuegos": "saladejuegos-barraza"
   },
   "targets": {}
 }

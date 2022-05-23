@@ -1,16 +1,15 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 
-
 @Injectable({
   providedIn: 'root'
 })
-export class ServiceFirebase {
+export class FirebaseService {
 
   constructor(private firestore: AngularFirestore) { }
  
-  async createLog(collection:any,item:any){
-    console.log("envio log con usuario y fecha");
+  async crearDatos(collection:any,item:any){
     return await this.firestore.collection(collection).add(item);
   }
+
 }

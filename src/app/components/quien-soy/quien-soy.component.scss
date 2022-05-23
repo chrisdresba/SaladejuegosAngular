@@ -1,17 +1,13 @@
-*{
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+	font-family: 'Poppins', sans-serif;
 }
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
 
-.barraNav{
-	position: absolute;
-	width: 100%;
-}
-
-#container{
+#container {
 	margin: 0;
 	padding: 0;
 	display: flex;
@@ -23,36 +19,37 @@
 
 }
 
-.main{
+.main {
 	width: 90%;
-    display: flex;
+	display: flex;
 	justify-content: center;
-    align-items: center;
-	
+	align-items: center;
+
 }
 
 
-h1{
-    color: #fff;
+h1 {
+	color: #fff;
 }
 
-p{
-    color: #fff;
+p {
+	color: #fff;
 	font-size: 18px;
 }
 
-img{
-width:25rem;
+img {
+	margin-left: 5rem;
+	width: 70%;
 }
 
-.imagenCircular{
+.imagenCircular {
 	border-radius: 50%;
 	display: flex;
 	justify-content: center;
 }
 
-.Perfil{
+.Perfil {
 	display: flex;
 	justify-content: center;
-    align-items: center;
+	align-items: center;
 }

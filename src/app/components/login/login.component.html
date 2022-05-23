@@ -4,18 +4,21 @@
 		<input type="checkbox" id="chk" aria-hidden="true">
 
 		<div class="login">
-			<form>
+			<form >
 				<label for="chk" aria-hidden="true" class="title">Iniciar Sesion</label>
 				<input type="email" name="email" placeholder="Email" required="" [(ngModel)]="email">
 				<input type="password" name="pswd" placeholder="Contraseña" [(ngModel)]="password" required="">
 				<button (click)="ingresar()">Ingresar</button>
-				<br>
-				<button class="btnAccesoRapido" (click)="ingresarInvitado()">Acceso Invitado</button>
+				<div class="row">
+					<button class="btnAccesoRapido" (click)="ingresarInvitado()">Acceso Invitado</button>
+					<button class="btnAccesoRapido" (click)="ingresarAdmin()">Acceso Admin</button>
+				</div>
+			
 			</form>
 		</div>
 
 		<div class="signup">
-			<form>
+			<form >
 				<label for="chk" aria-hidden="true">Registrate</label>
 				<input type="text" name="text" placeholder="Nombre Completo" [(ngModel)]="nombreUsuario" required="">
 				<input type="email" name="email" placeholder="Email" [(ngModel)]="emailRegistro" required="">

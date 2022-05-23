@@ -1,14 +1,13 @@
-<app-nav class="barraNav"></app-nav>
 <div id="container">
     <div class="boxCartas">
         <div class="cartas card-1">{{ carta1 }}</div>
-        <div class="mensaje">{{ mensaje }}</div>
+        <h5 class="mensaje">{{ mensaje }}</h5>
         <div class="cartas card-2">{{ carta2 }}</div>
-        <div class="score">Puntaje: {{ puntaje }}</div>
+        <h3 class="score">Puntaje: {{ puntaje }}</h3>
     </div>
     <div class="btnMayorMenor">
         <button (click)="mayor()">MAYOR</button>
         <button (click)="menor()">MENOR</button>
-     
+
     </div>
 </div>

@@ -1,4 +1,3 @@
-<app-nav class="barraNav"></app-nav>
 <div id="container" style="background-color: rgb(11, 11, 57)">
 
   <div style="background-color: rgb(142, 205, 179);width: 80%; margin-top: 4rem;">
@@ -20,22 +19,17 @@
         <div class="card">
           <div class="card-header">Info</div>
           <div class="card-body">
-            <strong class="h2">Puntaje: {{game.score}}</strong><br>
+            <strong class="h2">Puntaje: {{game.puntaje}}</strong><br>
           </div>
         </div>
 
         <div class="card mt-4">
           <div class="card-header">Opciones</div>
           <div class="card-body" style="margin:0.5rem">
-            <button class="btn btn-primary btn-block" (click)="game.isRunning() ? game.stop() : game.start()"
-              style="margin-right:10px">
-              {{game.isRunning() ? 'Detener' : 'Iniciar'}}
-            </button>
-            <button class="btn btn-warning btn-block " (click)="game.restart()">Reiniciar</button>
-
+            <button class="btn btn-primary btn-block" (click)="game.restart()">Iniciar</button>
             <div class="input-group mb-2" style="margin-top:0.5rem">
               <div class="input-group-prepend">
-                <span class="input-group-text" id="speed">Speed</span>
+                <span class="input-group-text" id="speed">Velocidad</span>
               </div>
               <input type="number" [(ngModel)]="gameSpeed" class="form-control" placeholder="Speed" aria-label="Speed"
                 aria-describedby="speed" min="100" step="50">
@@ -46,5 +40,5 @@
       </div>
 
     </div>
-  </div> 
+  </div>
 </div>

@@ -7,6 +7,7 @@ import {
   Validators,
   FormBuilder
 } from '@angular/forms';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 @Component({
   selector: 'app-chat',
@@ -15,28 +16,36 @@ import {
 })
 export class ChatComponent implements OnInit {
 
-  formulario : FormGroup;
+  usuario: any;
+  email:string = '';
+  formulario: FormGroup;
   public mensaje: any;
-  public auth2: boolean;
+  public auth2: boolean = false;
 
-  constructor( public chat: ChatService,public fb: FormBuilder) { 
+  constructor(public chat: ChatService, public fb: FormBuilder, public afAuth: AngularFireAuth) {
 
     this.formulario = this.fb.group({
-      'mensaje': new FormControl("", Validators.required),
+      'mensaje': new FormControl("", [Validators.required,Validators.maxLength(100)]),
     })
 
-    this.auth2 = false;
-    if(String(localStorage.getItem('usuario'))?.length > 0 && localStorage.getItem('usuario')?.length != undefined){
-      this.auth2 = true;
-    }
-
-  }
-
-  guardarMensaje(){
-    this.chat.guardarMensaje(localStorage.getItem('usuario'),this.mensaje);
   }
 
   ngOnInit(): void {
+ 
+    this.usuario = this.afAuth.onAuthStateChanged(user =>{
+      if(!user){
+        this.email = 'anonimo';
+        this.auth2 = false;
+        }else{
+          this.auth2 = true;
+          this.usuario = user;
+          this.email = this.usuario.email;
+        }
+   })
+  }
+
+  guardarMensaje() {
+    this.chat.guardarMensaje(this.email, this.mensaje);
   }
 
 }
