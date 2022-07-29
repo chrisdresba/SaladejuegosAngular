@@ -1,6 +1,6 @@
 # SALA DE JUEGOS
 
-Proyecto que incluye Juegos, Chats, Encuestas y Listados.
+Proyecto desarrollado con ANGULAR que incluye Juegos, Chats, Encuestas y Listados.
 
 Puede acceder al proyecto desde el siguiente [link](https://saladejuegos-barraza.web.app/).
 
