@@ -14,6 +14,7 @@ export class MayormenorComponent implements OnInit {
 
   public carta1: number = 6;
   public carta2: string = "";
+  public url: string = "assets/img/in.png";
   public random: number = 0;
   public puntaje: number = 0;
   public mensaje?: string;
@@ -56,17 +57,18 @@ export class MayormenorComponent implements OnInit {
     this.partida();
 
     if (this.carta1 > this.random) {
-      this.mensaje = "Acertaste";
+      this.url = "assets/img/ok.png";
       this.puntaje = this.puntaje + 5;
     } else if (this.carta1 == this.random) {
+      this.url = "assets/img/in.png";
     } else {
-      this.mensaje = "Fallaste";
+      this.url = "assets/img/no.png";
       this.intentos--;
     }
 
     if (this.intentos != 0) {
       setTimeout(() => {
-        this.mensaje = "";
+        this.url = "assets/img/in.png";
         this.carta1 = this.random;
         this.carta2 = ""
       }, 3000)
@@ -79,17 +81,18 @@ export class MayormenorComponent implements OnInit {
     this.partida();
 
     if (this.carta1 < this.random) {
-      this.mensaje = "Acertaste";
+      this.url = "assets/img/ok.png";
       this.puntaje = this.puntaje + 5;
     } else if (this.carta1 == this.random) {
+      this.url = "assets/img/in.png";
     } else {
-      this.mensaje = "Fallaste";
+      this.url = "assets/img/no.png";
       this.intentos--;
     }
 
     if (this.intentos != 0) {
       setTimeout(() => {
-        this.mensaje = "";
+        this.url = "assets/img/in.png";
         this.carta1 = this.random;
         this.carta2 = ""
       }, 3000)
@@ -101,6 +104,7 @@ export class MayormenorComponent implements OnInit {
   finDePartida() {
     this.guardarResultado();
     this.puntaje = 0;
+    this.url = "assets/img/in.png";
     Swal.fire({
       icon: 'warning',
       title: 'Vuelve a intentarlo',
@@ -116,4 +120,5 @@ export class MayormenorComponent implements OnInit {
     resultado.crearResultado(this.email, this.puntaje, this.juego, this.fecha);
     this.serv.guardarResultado(resultado);
   }
+
 }

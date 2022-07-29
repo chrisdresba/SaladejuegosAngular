@@ -19,7 +19,8 @@ import { ResultadosService } from 'src/app/services/resultados.service';
 })
 export class PreguntadosComponent implements OnInit {
 
-  base_preguntasJson: any[] = [{
+  base_preguntasJson: any[] = [];
+  preguntasJson: any[] = [{
     "pregunta": "¿Cual es la capital de Peru?",
     "respuesta": "Lima",
     "incorrecta1": "Cusco",
@@ -91,6 +92,69 @@ export class PreguntadosComponent implements OnInit {
     "imagen": "Chile",
     "objectFit": "cover"
   },
+  {
+    "pregunta": "¿Cual es la capital de Uruguay?",
+    "respuesta": "Montevideo",
+    "incorrecta1": "Punta del Este",
+    "incorrecta2": "Colonia",
+    "incorrecta3": "Piriapolis\r",
+    "imagen": "Uruguay",
+    "objectFit": "cover"
+  },
+  {
+    "pregunta": "¿Cual es la capital de Paraguay?",
+    "respuesta": "Asunción",
+    "incorrecta1": "Encarnación",
+    "incorrecta2": "Ciudad del Este",
+    "incorrecta3": "Concepción\r",
+    "imagen": "Paraguay",
+    "objectFit": "cover"
+  },
+  {
+    "pregunta": "¿Cual es la capital de Bolivia?",
+    "respuesta": "La Paz",
+    "incorrecta1": "Santa Cruz de la Sierra",
+    "incorrecta2": "Cochabamba",
+    "incorrecta3": "Sucre\r",
+    "imagen": "Bolivia",
+    "objectFit": "cover"
+  },
+  {
+    "pregunta": "¿Cual es la capital de México?",
+    "respuesta": "Ciudad de México",
+    "incorrecta1": "Monterrey",
+    "incorrecta2": "Querétaro",
+    "incorrecta3": "Guadalajara\r",
+    "imagen": "Mexico",
+    "objectFit": "cover"
+  },
+  {
+    "pregunta": "¿Cual es la capital de Portugal?",
+    "respuesta": "Lisboa",
+    "incorrecta1": "Lagos",
+    "incorrecta2": "Braga",
+    "incorrecta3": "Oporto\r",
+    "imagen": "Portugal",
+    "objectFit": "cover"
+  },
+  {
+    "pregunta": "¿Cual es la capital de Francia?",
+    "respuesta": "París",
+    "incorrecta1": "Marsella",
+    "incorrecta2": "Lyon",
+    "incorrecta3": "Montpellier\r",
+    "imagen": "France",
+    "objectFit": "cover"
+  },
+  {
+    "pregunta": "¿Cual es la capital de Italia?",
+    "respuesta": "Roma",
+    "incorrecta1": "Milán",
+    "incorrecta2": "Florencia",
+    "incorrecta3": "Nápoles\r",
+    "imagen": "Italy",
+    "objectFit": "cover"
+  },
   ];
 
   pregunta = "";
@@ -101,15 +165,13 @@ export class PreguntadosComponent implements OnInit {
   incorrecta3 = "";
   imagen?: any = "";
   objectFit = "";
+  pais = "";
 
   opcion1 = "";
   opcion2 = "";
   opcion3 = "";
   opcion4 = "";
 
-  style = {
-    background: ""
-  }
   npreguntas = []
 
   posibles_respuestas: any[] = [];
@@ -128,6 +190,7 @@ export class PreguntadosComponent implements OnInit {
     this.service.traerPaises().subscribe((paises: any) => {
       this.paises = paises.slice(0, 249);
     })
+    this.base_preguntasJson = this.preguntasJson;
   }
 
 
@@ -151,6 +214,7 @@ export class PreguntadosComponent implements OnInit {
     const { pregunta, respuesta, incorrecta1, incorrecta2, incorrecta3, imagen, objectFit } = this.base_preguntasJson[n];
 
     this.devolverImagen(imagen);
+    this.pais = imagen;
     this.pregunta = pregunta;
     this.respuesta = respuesta;
     this.incorrecta1 = incorrecta1;
@@ -198,15 +262,26 @@ export class PreguntadosComponent implements OnInit {
   oprimirBtn(res: number) {
 
     if (this.posibles_respuestas[res] == this.respuesta) {
-
-      Swal.fire({
-        icon: 'success',
-        title: 'EXCELENTE +20',
-        showConfirmButton: false,
-        timer: 1000
-      })
+     
+      if (this.base_preguntasJson.length > 1) {
+        console.log(this.base_preguntasJson.length) 
+        Swal.fire({
+          icon: 'success',
+          title: 'EXCELENTE +20',
+          showConfirmButton: false,
+          timer: 1000
+        })
+        this.base_preguntasJson = this.base_preguntasJson.filter(items => items.respuesta != this.respuesta)
+      } else {
+        Swal.fire({
+          icon: 'success',
+          title: 'GANASTE, VUELVE A JUGAR',
+          showConfirmButton: false,
+          timer: 3000
+        })
+        this.base_preguntasJson = this.preguntasJson;
+      }
       this.puntaje = this.puntaje + 20;
-
       this.escogerPreguntaAleatoria()
     } else {
 
@@ -237,6 +312,7 @@ export class PreguntadosComponent implements OnInit {
       showConfirmButton: false,
       timer: 3000,
     });
+    this.base_preguntasJson = this.preguntasJson;
   }
   guardarResultado() {
     let pipe = new DatePipe('en-US');

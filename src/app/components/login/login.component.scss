@@ -47,10 +47,10 @@
 
 label {
 	color: #fff;
-	font-size: 2.3em;
+	font-size: 2.2em;
 	justify-content: center;
 	display: flex;
-	margin: 60px;
+	margin: 50px;
 	font-weight: bold;
 	cursor: pointer;
 	transition: .5s ease-in-out;
@@ -88,7 +88,7 @@ button {
 }
 
 .btnAccesoRapido{
-	margin-top: 4rem;
+	margin-top: 2rem;
 	width: 40%;
 }
 
@@ -128,3 +128,10 @@ app-nav{
 app-nav form{
 	display: none;
 }
+
+@media only screen and (min-width: 320px) and (max-width: 576px) {
+    .main {
+       margin-top: 10vh;
+    }
+}
+

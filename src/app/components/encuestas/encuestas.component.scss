@@ -19,7 +19,7 @@
     background: #005C97; 
     background: -webkit-linear-gradient(to right, #363795, #005C97);  
     background: linear-gradient(to right, #363795, #005C97);
-    
+    overflow: scroll
 }
 
 
@@ -35,4 +35,34 @@ th,
 td {
 	color: #fff;
 	font-weight: 600;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 576px) {
+
+	th,
+	td {
+		color: #fff;
+		font-weight: 600;
+		font-size: 0.6em;
+	}
+	#box {
+		margin: 0.5rem;
+		margin-top: 4rem;
+		overflow: scroll;
+	}
+}
+
+@media only screen and (min-width: 577px) and (max-width: 1000px) {
+
+	th,
+	td {
+		color: #fff;
+		font-weight: 600;
+		font-size: 0.8em;
+	}
+	#box {
+		margin: 0.5rem;
+		margin-top: 4rem;
+		overflow: scroll;
+	}
 }

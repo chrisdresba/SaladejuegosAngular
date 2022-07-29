@@ -1,107 +1,121 @@
 <div id="container">
-    <div class="row">
+    <div class="row col-md-12">
         <div class="col-md-4" id="imagen">
         </div>
-        <div class="col-md-8 order-md-1" id="box">
-            <h1 class="mb-4">Encuesta</h1>
+        <div class="col-md-4 order-md-1" id="box">
+            <h1>Encuesta</h1>
             <form [formGroup]="formulario" (ngSubmit)="guardarEncuesta()">
-                <div class="row" style="margin-top:-1rem;">
-                    <div class="row">
-                        <div class="col-md-6 mb-3">
-                            <label class="fuente" for="nombre">Nombre</label>
-                            <span *ngIf="this.formulario.get('nombre')?.hasError('required')" class="text-danger">
-                                *</span>
-                            <input formControlName="nombre" type="text" [(ngModel)]="nombre" class="form-control"
-                                name="nombre" placeholder="" value="" required />
-                            <span *ngIf="this.formulario.get('nombre')?.hasError('maxlength')" class="text-danger">Se
-                                aceptan solo 20 caracteres</span>
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <label class="fuente" for="apellido">Apellido</label>
-                            <span *ngIf="this.formulario.get('apellido')?.hasError('required')" class="text-danger">
-                                *</span>
-                            <input formControlName="apellido" [(ngModel)]="apellido" type="text" class="form-control"
-                                name="apellido" placeholder="" value="" required />
-                            <span *ngIf="this.formulario.get('apellido')?.hasError('maxlength')" class="text-danger">Se
-                                aceptan solo 20 caracteres</span>
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <label class="fuente" for="edad">Edad</label>
-                            <span *ngIf="this.formulario.get('edad')?.hasError('required')" class="text-danger">
-                                *</span>
-                            <input type="text" class="form-control" [(ngModel)]="edad" formControlName="edad"
-                                name="edad" placeholder="Debe ser mayor de 18 años" value="" required />
-                            <span *ngIf="this.formulario.get('edad')?.hasError('min')" class="text-danger">+18</span>
-                            <span *ngIf="this.formulario.get('edad')?.hasError('max')" class="text-danger">Debe ser
-                                mayor de 18 y menor a 120</span>
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <label class="fuente" for="telefono">Telefono</label>
-                            <span *ngIf="this.formulario.get('telefono')?.hasError('required')" class="text-danger">
-                                *</span>
-                            <input type="text" class="form-control" [(ngModel)]="telefono" formControlName="telefono"
-                                name="telefono" placeholder="Ingrese un número de 10 digitos" value="" required />
-                            <span *ngIf="this.formulario.get('telefono')?.hasError('maxlength')"
-                                class="text-danger">Deben ser 10 dígitos</span>
-                            <span *ngIf="this.formulario.get('telefono')?.hasError('minlength')"
-                                class="text-danger">Deben ser 10 dígitos</span>
-                        </div>
+                <div class="col-md-12">
+                    <div class="cuadro">
+                        <label class="fuente" for="nombre">Nombre</label>
+                        <span *ngIf="this.formulario.get('nombre')?.hasError('required')" class="text-danger">
+                            *</span>
+                        <br>
+                        <input formControlName="nombre" type="text" [(ngModel)]="nombre" class="form-control"
+                            name="nombre" placeholder="" value="" required />
+                        <span *ngIf="this.formulario.get('nombre')?.hasError('maxlength')" class="text-danger">Se
+                            aceptan solo 20 caracteres</span>
+                    </div>
+                    <div class="cuadro">
+                        <label class="fuente" for="apellido">Apellido</label>
+                        <span *ngIf="this.formulario.get('apellido')?.hasError('required')" class="text-danger">
+                            *</span>
+                        <br>
+                        <input formControlName="apellido" [(ngModel)]="apellido" type="text" class="form-control"
+                            name="apellido" placeholder="" value="" required />
+                        <span *ngIf="this.formulario.get('apellido')?.hasError('maxlength')" class="text-danger">Se
+                            aceptan solo 20 caracteres</span>
+                    </div>
+                    <div class="cuadro">
+                        <label class="fuente" for="telefono">Telefono</label>
+                        <span *ngIf="this.formulario.get('telefono')?.hasError('required')" class="text-danger">
+                            *</span>
+                        <br>
+                        <input type="text" class="form-control" [(ngModel)]="telefono" formControlName="telefono"
+                            name="telefono" placeholder="Ingrese un número de 10 digitos" value="" required />
+                        <span *ngIf="this.formulario.get('telefono')?.hasError('maxlength')" class="text-danger">Deben
+                            ser
+                            10 dígitos</span>
+                        <span *ngIf="this.formulario.get('telefono')?.hasError('minlength')" class="text-danger">Deben
+                            ser
+                            10 dígitos</span>
+                    </div>
+                    <div class="cuadro">
+                        <label class="fuente" for="edad">Edad</label>
+                        <span *ngIf="this.formulario.get('edad')?.hasError('required')" class="text-danger">
+                            *</span>
+                        <br>
+                        <input type="text" class="form-control" [(ngModel)]="edad" formControlName="edad" name="edad"
+                            placeholder="Debe ser mayor de 18 años" value="" required />
+                        <span *ngIf="this.formulario.get('edad')?.hasError('min')" class="text-danger">+18</span>
+                        <span *ngIf="this.formulario.get('edad')?.hasError('max')" class="text-danger">Debe ser
+                            mayor de 18 y menor a 120</span>
+                    </div>
+                    <div class="cuadro">
+                        <h3 class="fuente" for="tipo">Como fue tu experiencia</h3>
+                        <span *ngIf="this.formulario.get('resp1')?.hasError('required')" class="text-danger">
+                            *</span>
+                        <br />
+                        <select name="tipo" formControlName="resp1" [(ngModel)]="resp1">
+                            <option value="excelente">Excelente</option>
+                            <option value="buena">Buena</option>
+                            <option value="regular">Regular</option>
+                            <option value="disconforme">Disconforme</option>
+                        </select>
                     </div>
 
-                    <div class="row">
-                        <div class="col-md-6 mb-3">
-                            <label class="fuente" for="tipo">Como fue tu experiencia</label>
-                            <span *ngIf="this.formulario.get('resp1')?.hasError('required')" class="text-danger">
-                                *</span>
-                            <br />
-                            <select name="tipo" formControlName="resp1" [(ngModel)]="resp1" style="width:250px;">
-                                <option value="excelente">Excelente</option>
-                                <option value="buena">Buena</option>
-                                <option value="regular">Regular</option>
-                                <option value="disconforme">Disconforme</option>
-                            </select>
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <label for="tipo" class="fuente">Que juegos preferís?</label>
-                            <span *ngIf="this.formulario.get('resp2')?.hasError('required')" class="text-danger">
-                                *</span>
-                            <div style="width:600px;height:70px; margin-left: -150px;">
-                                <br>
-                                <input formControlName="resp2" [(ngModel)]="resp2" type="radio" name="opcion"
-                                    value="arcade">
-                                <label style="margin-left:-50px;">Arcade</label>
-                                <input formControlName="resp2" [(ngModel)]="resp2" type="radio" name="opcion"
-                                    value="estrategia">
-                                <label style="margin-left:-50px;">Estrategia</label>
-                            </div>
-                        </div>
-
-                        <div class="d-flex flex-column align-items-center">
-                            <h3>¿Cuales juegos te gustaron?</h3>
-                            <div class="col-12">
-                                <input type="checkbox" value="ahorcado" (change)="onCheckboxChange($event)">
-                                <label style="margin-left:-50px;" for="ahorcado">Ahorcado</label>
-                            </div>
-                            <div class="col-12">
-                                <input type="checkbox" value="Mayor o Menor" (change)="onCheckboxChange($event)">
-                                <label style="margin-left:-50px;" for="mayorMenor">Mayor o Menor</label>
-                            </div>
-                            <div class="col-12">
-                                <input type="checkbox" value="preguntados" (change)="onCheckboxChange($event)">
-                                <label style="margin-left:-50px;" for="preguntados">Preguntados</label>
-                            </div>
-                            <div class="col-12">
-                                <input type="checkbox" value="snake" (change)="onCheckboxChange($event)">
-                                <label style="margin-left:-50px;" for="keyboardattack">Snake</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <button class="btn btn-primary btn-lg btn-block" style="margin-top: 1rem;" type="submit">
-                        Guardar Encuesta
-                    </button>
                 </div>
             </form>
         </div>
+        <div class="col-md-4 order-md-1" id="box2">
+            <form [formGroup]="formulario" (ngSubmit)="guardarEncuesta()">
+                <div class="col-md-12">
+                    <div class="col-md-12 d-flex flex-column align-items-center">
+                        <h3>¿Que juegos te gustaron?</h3>
+                        <div class="row d-flex mt-4 flex-column align-items-center">
+                            <div class="col mt-2">
+                                <input type="checkbox" class="check" value="ahorcado" (change)="onCheckboxChange($event)">
+                                <label class="opciones" for="ahorcado">Ahorcado</label>
+                            </div>
+                            <div class="col mt-2">
+                                <input type="checkbox" class="check" value="Mayor o Menor" (change)="onCheckboxChange($event)">
+                                <label class="opciones" for="mayorMenor">Mayor o Menor</label>
+                            </div>
+                            <div class="col mt-2">
+                                <input type="checkbox" class="check" value="preguntados" (change)="onCheckboxChange($event)">
+                                <label class="opciones" for="preguntados">Preguntados</label>
+                            </div>
+                            <div class="col mt-2">
+                                <input type="checkbox" class="check" value="snake" (change)="onCheckboxChange($event)">
+                                <label class="opciones" for="keyboardattack">Snake</label>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="col-md-12  d-flex flex-column align-items-center">
+                        <label for="tipo" class="fuente">Que juegos preferís?</label>
+                        <div class="row radioBtn mt-2">
+                            <br>
+                            <div class="col opciones">
+                                <input formControlName="resp2" [(ngModel)]="resp2" type="radio" name="opcion"
+                                    value="arcade"><label class="custom-control-label">Arcade</label>
+                            </div>
+                            <div class="col opciones">
+                                <input formControlName="resp2" [(ngModel)]="resp2" type="radio" name="opcion"
+                                    value="estrategia"> <label class="custom-control-label">Estrategia</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <div>
+                <button class="btn btn-primary btn-lg btn-block col-md-12 d-flex flex-column align-items-center" type="submit">
+                    Guardar Encuesta
+                </button>
+            </div>
+            </form>
+
+        </div>
+
     </div>
 </div>

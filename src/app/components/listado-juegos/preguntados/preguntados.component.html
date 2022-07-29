@@ -1,31 +1,23 @@
 <div id="container">
-    <div class="col-11">
-
+    <div class="col-12 caja">
         <div class="card text-center box">
-            <h1 [hidden]="auth2" style="font-weight: bold">PREGUNTADOS</h1>
-            <img [hidden]="auth2" src="assets/img/imagenPreguntados.png" alt=""
-                style="width: 85vh; height: 60vh; margin:0vh; ;filter:brightness(1.1);mix-blend-mode: multiply;">
-            <button [hidden]="auth2" (click)="comenzar()">Comenzar</button>
+            <img [hidden]="auth2" class="imgIngreso" src="assets/img/imagenPreguntados.png" alt="">
+            <button [hidden]="auth2" class="btn-grad" (click)="comenzar()" id="btnComenzar">Comenzar</button>
             <div [hidden]="!auth2" class="card-header bg-info " class="encabezado" id="titulo">
                 <h4 class="text-center">{{pregunta}}</h4>
             </div>
             <div [hidden]="!auth2" class="card-body text-center">
-                <img *ngIf="imagen" src="{{imagen}}" alt=""
-                    style="width: 40vh; height: 25vh; margin:2vh; object-fit:cover;">
+                <img *ngIf="imagen" class="bandera" src="{{imagen}}" alt="{{pais}}" title="{{pais}}">
 
                 <div class="row text-center m-2">
-                    <button (click)="oprimirBtn(0)" [ngStyle]="style" style="font-weight: bold;font-size: large;"
-                        id="btn1" type="button"
-                        class="btn btn-outline-primary m-1 col-lg-12 col-md-12 col-xs-12 ">{{opcion1}}</button>
-                    <button (click)="oprimirBtn(1)" [ngStyle]="style" style="font-weight: bold;font-size: large;"
-                        id="btn2" type="button"
-                        class="btn btn-outline-primary m-1 col-lg-12 col-md-12 col-xs-12 ">{{opcion2}}</button>
-                    <button (click)="oprimirBtn(2)" [ngStyle]="style" style="font-weight: bold;font-size: large;"
-                        id="btn3" type="button"
-                        class="btn btn-outline-primary m-1 col-lg-12 col-md-12 col-xs-12 ">{{opcion3}}</button>
-                    <button (click)="oprimirBtn(3)" [ngStyle]="style" style="font-weight: bold;font-size: large;"
-                        id="btn4" type="button"
-                        class="btn btn-outline-primary m-1 col-lg-12 col-md-12 col-xs-12 ">{{opcion4}}</button>
+                    <button (click)="oprimirBtn(0)" id="btn1"
+                        class="btn m-1 col-lg-12 col-md-12 col-xs-12 ">{{opcion1}}</button>
+                    <button (click)="oprimirBtn(1)" id="btn2"
+                        class="btn m-1 col-lg-12 col-md-12 col-xs-12 ">{{opcion2}}</button>
+                    <button (click)="oprimirBtn(2)" id="btn3"
+                        class="btn m-1 col-lg-12 col-md-12 col-xs-12 ">{{opcion3}}</button>
+                    <button (click)="oprimirBtn(3)" id="btn4"
+                        class="btn m-1 col-lg-12 col-md-12 col-xs-12 ">{{opcion4}}</button>
                 </div>
             </div>
         </div>

@@ -1,61 +1,148 @@
-*{
+* {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
     font-family: 'Poppins', sans-serif;
 }
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
 
 
-#container{
-	margin: 0;
-	padding: 0;
-	display: flex;
-	justify-content:center;
-	align-items: center;
-	min-height: 100vh;
-	font-family: 'Jost', sans-serif;
-	background-image: linear-gradient(to right, #243949 0%, #517fa4 100%);
-	color: #fff;
+#container {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Jost', sans-serif;
+    background-image: linear-gradient(to right, #243949 0%, #517fa4 100%);
+    color: #fff;
 }
 
-.encabezado{
+#btnComenzar {
+    position: absolute;
+    padding: 10px;
+    margin: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 10vh;
+}
+
+.encabezado {
     background-color: rgb(21, 64, 191);
-    height: 2.5rem;
-    margin-top: -1px;
+    height: 5vh;
+    width: 100vw;
+    margin: 0;
+    top: 0;
 }
 
-.box{
-    background: url("../../../../../assets/img/fondoPreguntados.jpg") no-repeat center;
-	background-size: cover;
-    width: 95%;
-	height: 80vh;
+.box {
+    background: url("/assets/img/fondoPreguntados.jpg") no-repeat center;
+    background-size: cover;
+    width: 100vw;
+    height: 90vh;
+    margin-top: 2.5rem;
 }
 
-button {
+.imgIngreso {
+    margin-top: 5vw;
+}
+
+.btn {
     padding: 15px 80px;
     text-align: center;
-    display: inline-block;
     box-shadow: 0 10px 30px 0 rgba(47, 76, 90, 0.4);
     border-radius: 5px 5px 5px 5px;
     border-color: rgb(136, 136, 136);
     margin: 5px 20px 40px 20px;
     transition: all 0.3s ease-in-out;
-    color:#000000;
-  }
-
-.btnTexto{
-    font-weight:bold;
-    color: #463ca6;
-   
+    color: #000000;
 }
 
-#btnComenzar{
-    display: flex;
-    justify-content:center;
-	align-items: center;
-    height: 10vh;
-    margin: 0;
-	bottom: 0;
+.btn:hover{
+    background-color: rgb(21, 64, 191);
+    color: #fff;
+}
+
+.btnTexto {
+    font-weight: bold;
+    color: #463ca6;
+
+}
+
+.btn-grad {
+    background-image: linear-gradient(to right, #3494E6 0%, #EC6EAD 51%, #3494E6 100%);
+    margin: 0px;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    box-shadow: 0 0 20px #eee;
+    display: block;
+}
+
+.btn-grad:hover {
+    background-position: right center;
+    color: #fff;
+    text-decoration: none;
+}
+
+.bandera {
+    margin-top: 1rem;
+}
+
+
+@media only screen and (min-width: 320px) and (max-width: 900px) {
+    #btnComenzar {
+        height: 60px;
+    }
+
+    .imgIngreso {
+        margin-top: 20vh;
+        height: 40vh;
+    }
+
+    .box {
+        margin-top: 2.5rem;
+    }
+
+    .encabezado {
+        height: 30px;
+    }
+
+    .bandera {
+        width: 40vw;
+    }
+
+}
+
+
+
+@media only screen and (min-width: 120px) and (max-width: 576px) {
+    h4 {
+        font-size: 16px;
+    }
+    .encabezado{
+        margin-top: 0.8rem;
+        width: 100vw;
+        padding: 0.5rem;
+    }
+
+    .bandera {
+        width: 100px;
+        height: 50px;
+    }
+
+    .btn{
+        height: 10vh;
+        padding: 0px 20px;
+        text-align: center;
+        margin: 2.5px 10px 20px 10px;
+    }
 
 }

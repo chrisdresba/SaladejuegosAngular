@@ -17,7 +17,7 @@ export class ListadoMensajesComponent implements OnInit {
     this.listadoMensajes = chat.chats;
     this.listadoMensajes = this.listadoMensajes.pipe(
       map(docs => {
-        return docs.sort((a?, b?) => (((a.fecha! > b.fecha!) || (a.fecha! == b.fecha! && a.hora! < b.hora!)) ? 1 : -1));
+        return docs.sort((a?, b?) => (((a.fecha! > b.fecha!) || (a.fecha! == b.fecha! && a.hora! > b.hora!)) ? 1 : -1));
       })
     );
   }

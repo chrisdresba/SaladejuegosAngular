@@ -63,6 +63,9 @@ export class LoginComponent implements OnInit {
           this.guardarUsuario(this.nombreUsuario, this.emailRegistro, this.passwordRegistro, 'usuario');
           this.guardarLog(usuario.usuario);
           this.router.navigate(['/home'])
+          .then(() => {
+            window.location.reload();
+          });
           Swal.fire({
             position: 'center',
             icon: 'success',
@@ -121,11 +124,7 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('sesionSala', usuario.usuario);
           localStorage.setItem('sesionSalaRol', rol);
           this.guardarLog(usuario.usuario);
-          this.router.navigate(['/home'])
-            .then(() => {
-              window.location.reload();
-            });
-
+          setTimeout(()=>{ this.router.navigate(['/home'])},2000)
         }, err => {
           Swal.fire({
             icon: 'error',

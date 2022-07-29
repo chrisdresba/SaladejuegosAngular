@@ -6,7 +6,6 @@ import { PreguntadosComponent } from '../listado-juegos/preguntados/preguntados.
 import { GuardGuard } from './../../guard/guard.guard';
 import { Page404Component } from './../page404/page404.component';
 import { JuegosComponent } from './juegos.component';
-import { JuegopropioComponent } from '../listado-juegos/juegopropio/juegopropio.component';
 
 const routes: Routes = [
   {
@@ -25,10 +24,6 @@ const routes: Routes = [
   {
     path: 'preguntados',
     component: PreguntadosComponent
-  },
-  {
-    path: 'juegopropio',
-    component: JuegopropioComponent
   },
   {
     path: '**',

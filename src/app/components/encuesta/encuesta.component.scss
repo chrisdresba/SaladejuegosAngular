@@ -13,16 +13,24 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 2em;
     min-height: 100vh;
     background: #c2e59c;
     background: -webkit-linear-gradient(to right, #64b3f4, #c2e59c);
     background: linear-gradient(to right, #64b3f4, #c2e59c);
-
+    overflow: hidden;
 }
 
 #box {
     padding: 2rem;
-    margin-top: 2rem;
+    justify-content: center;
+    align-items: center;
+}
+
+#box2 {
+    padding: 2rem;
+    justify-content: center;
+    align-items: center;
 }
 
 #imagen {
@@ -30,7 +38,7 @@
     overflow: hidden;
     background-size: cover;
     background-color: black;
-    height: 630px;
+    height: 610px;
 
 }
 
@@ -38,8 +46,12 @@ h1 {
     font-weight: bold;
 }
 
+h3 {
+    margin-top: 0.5em;
+}
+
 input {
-    width: 300px;
+    width: 100%;
 }
 
 .fuente {
@@ -47,6 +59,31 @@ input {
     font-weight: bold;
 }
 
-label{
+.cuadro {
+    margin-top: 1em;
+}
+
+label {
     font-size: 1.1rem;
+}
+
+.opciones {
+    justify-content: center;
+}
+
+.radioBtn {
+    float: left;
+    margin-left: 2em;
+}
+
+button {
+    margin-top: 2em;
+ width: 100%;
+}
+
+.check {
+    float: left;
+    margin-left: 1em;
+    width: 20px;
+    height: 20px;
 }

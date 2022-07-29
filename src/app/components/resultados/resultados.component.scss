@@ -19,7 +19,7 @@
 	background: #373B44;
 	background: -webkit-linear-gradient(to right, #4286f4, #373B44);
 	background: linear-gradient(to right, #4286f4, #373B44);
-
+	overflow: scroll
 }
 
 
@@ -35,4 +35,19 @@ th,
 td {
 	color: #fff;
 	font-weight: 600;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 576px) {
+
+	th,
+	td {
+		color: #fff;
+		font-weight: 600;
+		font-size: 0.5em;
+	}
+	#box {
+		margin: 0.5rem;
+		margin-top: 4rem;
+		overflow: scroll;
+	}
 }

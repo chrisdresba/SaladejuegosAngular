@@ -4,3 +4,12 @@ span{
 ul{
     list-style: none;
 }
+
+@media (max-width: 576px) {
+    span{
+        font-size: 12px;
+    }
+	li {
+		font-size: 12px !important;
+	}
+}

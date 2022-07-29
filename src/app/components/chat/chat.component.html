@@ -1,18 +1,22 @@
-<div id="container">
-    <div class="mensajes" [hidden]="!auth2">
-        <div class="box-listado">
-            <app-listado-mensajes></app-listado-mensajes>
+<div class="box">
+    <div id="container" class="row">
+        <div class="mensajes" [hidden]="!auth2">
+            <div class="box-listado">
+                <app-listado-mensajes></app-listado-mensajes>
+            </div>
         </div>
-        <form class="d-flex box-mensaje" [hidden]="auth2">
-            <input type="text" class="input" name="mensaje" placeholder="Mensaje" required="" [(ngModel)]="mensaje">
-            <input type="button" class="boton" (click)="guardarMensaje()"
-                class="btn btn-secondary btn-primary-outline-success" value="  Enviar ">
-        </form>
-    </div>
+        <div class="submit">
+            <form class="d-flex box-mensaje" [hidden]="auth2">
+                <input type="text" class="input" name="mensaje" placeholder="Mensaje" required="" [(ngModel)]="mensaje">
+                <input type="button" class="boton" (click)="guardarMensaje()"
+                    class="btn btn-secondary btn-primary-outline-success" value="  Enviar ">
+            </form>
+        </div>
 
-    <div class="mensajes no-sesion" [hidden]="auth2">
-        <h1>Debe iniciar sesion</h1>
-        <button routerLink="/login">Iniciar Sesion</button>
-    </div>
+        <div class="mensajes no-sesion" [hidden]="auth2">
+            <h1>Debe iniciar sesion</h1>
+            <button routerLink="/login">Iniciar Sesion</button>
+        </div>
 
+    </div>
 </div>

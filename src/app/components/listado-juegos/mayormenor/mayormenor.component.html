@@ -1,9 +1,11 @@
 <div id="container">
     <div class="boxCartas">
+        <div class="box">
         <div class="cartas card-1">{{ carta1 }}</div>
-        <h5 class="mensaje">{{ mensaje }}</h5>
+        <img src="{{url}}" class="mensaje">
         <div class="cartas card-2">{{ carta2 }}</div>
         <h3 class="score">Puntaje: {{ puntaje }}</h3>
+      </div>
     </div>
     <div class="btnMayorMenor">
         <button (click)="mayor()">MAYOR</button>
