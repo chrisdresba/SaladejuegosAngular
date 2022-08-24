@@ -2,10 +2,10 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Teko', sans-serif;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@500&display=swap');
 
 #container {
     margin: 0;
@@ -25,29 +25,30 @@
     padding: 2rem;
     justify-content: center;
     align-items: center;
+    margin-top: 1em;
 }
 
 #box2 {
     padding: 2rem;
     justify-content: center;
     align-items: center;
+    margin-top: 3rem;
 }
 
-#imagen {
-    background: url('./../../../assets/img/encuesta.jpg') no-repeat center/ cover;
+img {
+    min-height: 100vh;
+    max-width: 34vw;
     overflow: hidden;
-    background-size: cover;
-    background-color: black;
-    height: 610px;
-
 }
 
 h1 {
     font-weight: bold;
+    font-size: 2rem;
 }
 
 h3 {
     margin-top: 0.5em;
+    font-size: 1.5rem;
 }
 
 input {
@@ -55,7 +56,7 @@ input {
 }
 
 .fuente {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     font-weight: bold;
 }
 
@@ -64,11 +65,13 @@ input {
 }
 
 label {
-    font-size: 1.1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
 .opciones {
     justify-content: center;
+    font-size: 1.2rem;
 }
 
 .radioBtn {
@@ -78,7 +81,7 @@ label {
 
 button {
     margin-top: 2em;
- width: 100%;
+    width: 100%;
 }
 
 .check {
@@ -86,4 +89,16 @@ button {
     margin-left: 1em;
     width: 20px;
     height: 20px;
+}
+
+
+@media only screen and (min-width: 320px) and (max-width: 720px) {
+    img {
+        min-width: 100vw;
+    }
+
+    #box2 {
+        margin-top: 0;
+    }
+
 }

@@ -1,12 +1,15 @@
 <div id="container">
-    <div id="box">
-        <table class="table table-responsive table-hover">
+    <div id="box" class="row">
+        <div class="title text-flicker-in-glow">
+            <h4>Listado de resultados</h4>
+        </div>
+        <table class="table table-responsive table-hover text-focus-in ">
             <thead>
-                <tr style="background-color:rgb(10, 10, 10);">
-                    <th>Usuario</th>
-                    <th>Puntaje</th>
-                    <th>Juego</th>
-                    <th>Fecha</th>
+                <tr class="head">
+                    <th>USUARIO</th>
+                    <th>PUNTAJE</th>
+                    <th>JUEGO</th>
+                    <th>FECHA</th>
                 </tr>
             </thead>
             <tbody>
@@ -16,7 +19,6 @@
                     <td>{{resultado.juego}}</td>
                     <td>{{resultado.fecha}}</td>
                 </tr>
-
             </tbody>
         </table>
     </div>

@@ -8,6 +8,7 @@ import { PreguntadosComponent } from '../listado-juegos/preguntados/preguntados.
 import { Page404Component } from './../page404/page404.component';
 import { JuegosRoutingModule } from './juegos-routing.module';
 import { FormsModule, ReactiveFormsModule, } from '@angular/forms';
+import { NotimageDirective } from './../../directivas/notimage.directive';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { FormsModule, ReactiveFormsModule, } from '@angular/forms';
     AhorcadoComponent,
     MayormenorComponent,
     PreguntadosComponent,
-    Page404Component
+    Page404Component,
+    NotimageDirective
   ],
   imports: [
     CommonModule,

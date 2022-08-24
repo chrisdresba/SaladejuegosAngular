@@ -1,7 +1,8 @@
 <div id="container" class="color-change-2x">
     <div class="row">
-        <div class="col text-center font">
-            <h3 style="margin-bottom: 1rem;">Puntaje <small> {{puntaje}} </small></h3>
+        <div class="col text-center font box">
+            <h4><img src="assets/img/vida.png" alt="" class="vida"> {{vidas}}</h4>
+            <h3>Puntaje <small> {{puntaje}} </small></h3>
             <img src="{{url}}" alt="ahorcado-img" class="ahorcado-img flicker-1">
             <div>
                 <h3>Intentos <small> {{intentos}}/6</small></h3>
@@ -18,7 +19,7 @@
 
     <div class="row teclado">
         <div class="col text-center">
-            <button *ngFor="let letra of letras" class="btn btn-primary btn-letras" (click)="buscar(letra)"> {{ letra }}
+            <button *ngFor="let letra of letras" class="btn btn-primary btn-letras color-change-btn" (click)="buscar(letra)"> {{ letra }}
             </button>
         </div>
     </div>

@@ -1,39 +1,35 @@
-*{
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
 }
 
 
-#container{
+#container {
 	margin: 0;
 	padding: 0;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	width: 100%;
 	min-height: 100vh;
 	font-family: 'Jost', sans-serif;
 	background-image: linear-gradient(to right, #243949 0%, #517fa4 100%);
-	overflow: hidden
 }
 
-#box{
-	margin: 0;
-	padding: 0;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	min-height: 20vh;
-	font-family: 'Jost', sans-serif;
-	background-image: linear-gradient(to right, #243949 0%, #517fa4 100%);
-	overflow: hidden
+
+h1 {
+	color: #fff;
 }
 
-h1{
-    color: #fff;
-}
 
 mdb-carousel {
 	float: inline-end;
-	min-height: 40vh;
+	margin-top: 5em;
 }
+
+img {
+	min-height: 50vh;
+    min-width: 100vw;
+}
+

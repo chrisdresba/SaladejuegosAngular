@@ -3,7 +3,8 @@
     "default": "saladejuegos-barraza",
     "SaladeJuegos": "saladejuegos-barraza",
     "Saladejuegos": "saladejuegos-barraza",
-    "SalaDeJuegos": "saladejuegos-barraza"
+    "SalaDeJuegos": "saladejuegos-barraza",
+    "Sala de Juegos": "saladejuegos-barraza"
   },
   "targets": {}
 }

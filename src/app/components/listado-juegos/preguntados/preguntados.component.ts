@@ -234,7 +234,6 @@ export class PreguntadosComponent implements OnInit {
   }
   escogerPreguntaAleatoria() {
     const n = Math.floor(Math.random() * this.base_preguntasJson.length)
-
     this.elegirPregunta(n)
     this.desordenarRespuestas()
   }
@@ -289,7 +288,7 @@ export class PreguntadosComponent implements OnInit {
       if (this.intentos != 0) {
         Swal.fire({
           icon: 'warning',
-          title: 'INCORRECTO',
+          title: 'INCORRECTO,TE QUEDAN '+ this.intentos +  ' INTENTOS',
           showConfirmButton: false,
           timer: 1000
         })

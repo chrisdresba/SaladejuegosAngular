@@ -46,6 +46,7 @@ export class ChatComponent implements OnInit {
 
   guardarMensaje() {
     this.chat.guardarMensaje(this.email, this.mensaje);
+    this.mensaje = '';
   }
 
 }

@@ -21,7 +21,7 @@ export class AhorcadoComponent implements OnInit {
   public espacios: number = 0;
   public intentos: number = 0;
   public puntaje: number = 0;
-  public vidas: number = 4;
+  public vidas: number = 5;
   public url: string = "assets/img/ahorcado" + this.intentos + ".jpg";
   public unidad: string = "";
   public juego: string = "ahorcado";

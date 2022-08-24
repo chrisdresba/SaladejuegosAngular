@@ -1,11 +1,15 @@
 <div id="container">
+    <div class="vida">
+        <img src="assets/img/vida.png" alt="" class="intentos">
+        <h4>{{intentos}}</h4>
+    </div>
     <div class="boxCartas">
         <div class="box">
-        <div class="cartas card-1">{{ carta1 }}</div>
-        <img src="{{url}}" class="mensaje">
-        <div class="cartas card-2">{{ carta2 }}</div>
-        <h3 class="score">Puntaje: {{ puntaje }}</h3>
-      </div>
+            <div class="cartas card-1">{{ carta1 }}</div>
+            <img src="{{url}}" class="mensaje">
+            <div class="cartas card-2">{{ carta2 }}</div>
+            <h3 class="score">Puntaje: {{ puntaje }}</h3>
+        </div>
     </div>
     <div class="btnMayorMenor">
         <button (click)="mayor()">MAYOR</button>

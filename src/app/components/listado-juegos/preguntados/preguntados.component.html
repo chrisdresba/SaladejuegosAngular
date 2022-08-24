@@ -7,7 +7,7 @@
                 <h4 class="text-center">{{pregunta}}</h4>
             </div>
             <div [hidden]="!auth2" class="card-body text-center">
-                <img *ngIf="imagen" class="bandera" src="{{imagen}}" alt="{{pais}}" title="{{pais}}">
+                <img *ngIf="imagen" class="bandera" src="{{imagen}}" appNotimage alt="{{pais}}" title="{{pais}}">
 
                 <div class="row text-center m-2">
                     <button (click)="oprimirBtn(0)" id="btn1"
