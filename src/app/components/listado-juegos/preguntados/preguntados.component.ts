@@ -268,7 +268,7 @@ export class PreguntadosComponent implements OnInit {
           icon: 'success',
           title: 'EXCELENTE +20',
           showConfirmButton: false,
-          timer: 1000
+          timer: 1500
         })
         this.base_preguntasJson = this.base_preguntasJson.filter(items => items.respuesta != this.respuesta)
       } else {
@@ -290,7 +290,7 @@ export class PreguntadosComponent implements OnInit {
           icon: 'warning',
           title: 'INCORRECTO,TE QUEDAN '+ this.intentos +  ' INTENTOS',
           showConfirmButton: false,
-          timer: 1000
+          timer: 1500
         })
       } else {
         this.finDePartida();

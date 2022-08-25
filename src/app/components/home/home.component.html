@@ -1,7 +1,8 @@
 <div id="container" class="row">
   <mdb-carousel [isControls]="false" class="carousel slide carousel-fade" [animation]="'fade'">
     <mdb-carousel-item>
-      <a routerLink="/juegos"><img class="d-block" src='../../../assets/img/carrusel1.png' alt="First slide"
+      <a routerLink="/juegos">
+        <img class="d-block" src='../../../assets/img/carrusel1.png' alt="First slide"
           title="Juegos"></a>
     </mdb-carousel-item>
     <mdb-carousel-item>
@@ -13,4 +14,7 @@
           title="Juegos"></a>
     </mdb-carousel-item>
   </mdb-carousel>
+  <div class="boton">
+    <button class="btn btn-outline-light btn-lg flicker-3" routerLink="/juegos" role="button">Comenzar</button>
+  </div>
 </div>
