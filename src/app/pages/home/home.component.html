@@ -1,0 +1,81 @@
+<div id="container" class="row">
+  <!--CARUSSEL-->
+  <mdb-carousel [isControls]="false" class="carousel slide carousel-fade" [animation]="'fade'">
+    <mdb-carousel-item class="itemCarousel">
+      <a routerLink="/juegos">
+        <img class="d-block imagenCarousel" src='../../../assets/img/carrusel1.png' alt="First slide"
+          title="Juegos"></a>
+    </mdb-carousel-item>
+    <mdb-carousel-item class="itemCarousel">
+      <a routerLink="/juegos"><img class="d-block imagenCarousel" src='../../../assets/img/carrusel2.png'
+          alt="Second slide" title="Juegos"></a>
+    </mdb-carousel-item>
+    <mdb-carousel-item class="itemCarousel">
+      <a routerLink="/juegos"><img class="d-block imagenCarousel" src='../../../assets/img/carrusel3.png'
+          alt="Third slide" title="Juegos"></a>
+    </mdb-carousel-item>
+  </mdb-carousel>
+
+  <!--BARRA JUEGOS-->
+
+  <div class="barraJuegos color-change-2x">
+    <h3>DESTACADOS</h3>
+    <div class="svg-contain">
+      <img (click)="irJuegos()" class="heartbeat" src="https://cn.i.cdn.ti-platform.com/menu/item/games/ar/games.svg" width="80px" height="60px" alt="">
+    </div>
+    <button routerLink="/juegos">Ver todos!</button>
+  </div>
+  <!--JUEGOS-->
+  <section *ngIf="sesion">
+  <div class="album py-5 col-10 row">
+    <div class="container col-md-3">
+      <div class="col">
+        <div class="card shadow-sm" routerLink="/juegos/ahorcado">
+          <img class="img" src="../../../../assets/img/ahorcado.png" class="card-img-top fade-in-fwd zoom"
+            alt="preguntados">
+          <div class="card-body card-body-dark">
+            <div class="boxCard">
+              <p class="card-text">Ahorcado </p>
+              <img src="https://cn.i.cdn.ti-platform.com/menu/item/games/ar/games.svg" width="40px" height="50px"
+                alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container col-md-3">
+      <div class="col">
+        <div class="card shadow-sm" routerLink="/juegos/preguntados">
+          <img class="img" src="../../../../assets/img/preguntados.png" class="card-img-top fade-in-fwd zoom"
+            alt="preguntados">
+          <div class="card-body card-body-dark">
+            <div class="boxCard">
+              <p class="card-text">Preguntados </p>
+              <img src="https://cn.i.cdn.ti-platform.com/menu/item/games/ar/games.svg" width="40px" height="50px"
+                alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container col-md-3">
+      <div class="col">
+        <div class="card shadow-sm" routerLink="/juegos/mayormenor">
+          <img class="img" src="../../../../assets/img/naipejuego.png" class="card-img-top fade-in-fwd zoom"
+            alt="preguntados">
+          <div class="card-body card-body-dark">
+            <div class="boxCard">
+              <p class="card-text">Mayor o menor </p>
+              <img src="https://cn.i.cdn.ti-platform.com/menu/item/games/ar/games.svg" width="40px" height="50px"
+                alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<app-footer></app-footer>

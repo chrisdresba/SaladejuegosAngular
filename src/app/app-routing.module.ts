@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {LoginComponent} from './components/login/login.component';
-import {HomeComponent} from './components/home/home.component';
-import {ChatComponent} from './components/chat/chat.component';
-import {QuienSoyComponent} from './components/quien-soy/quien-soy.component';
-import {EncuestaComponent} from './components/encuesta/encuesta.component';
-import {ResultadosComponent} from './components/resultados/resultados.component';
+import {LoginComponent} from './pages/login/login.component';
+import {HomeComponent} from './pages/home/home.component';
+import {ChatComponent} from './pages/chat/chat.component';
+import {QuienSoyComponent} from './pages/quien-soy/quien-soy.component';
+import {EncuestaComponent} from './pages/encuesta/encuesta.component';
+import {ResultadosComponent} from './pages/resultados/resultados.component';
 import { GuardGuard } from './guard/guard.guard';
-import { Page404Component } from './components/page404/page404.component';
-import { EncuestasComponent } from './components/encuestas/encuestas.component';
+import { Page404Component } from './pages/page404/page404.component';
+import { EncuestasComponent } from './pages/encuestas/encuestas.component';
 import { RolesGuard } from './guard/roles.guard';
 
 const routes: Routes = [
@@ -31,11 +31,12 @@ const routes: Routes = [
   },
   {
     path: 'juegos',
-    loadChildren: () => import('./components/juegos/juegos.module').then(m => m.JuegosModule)
+    loadChildren: () => import('./pages/juegos/juegos.module').then(m => m.JuegosModule)
   },
   {
     path: 'chat',
-    component : ChatComponent 
+    component : ChatComponent ,
+    canActivate: [GuardGuard]
   },
   {
     path: 'encuesta',

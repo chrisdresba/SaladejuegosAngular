@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
-import { Pais } from '../Entidades/pais';
+import { Pais } from '../class/pais';
 
 @Injectable({
   providedIn: 'root'

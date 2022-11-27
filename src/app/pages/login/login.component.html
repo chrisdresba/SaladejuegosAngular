@@ -1,0 +1,52 @@
+<div id="container">
+	<div class="d-flex justify-content-center loading" role="status" [hidden]="!loading">
+		<img id="spinner" [hidden]="!loading" src="../../assets/img/loading.gif" alt="Sala de Juegos" />
+	</div>
+	<div class="main" [hidden]="loading">
+		<input type="checkbox" id="chk" aria-hidden="true">
+		<div class="login">
+			<form [formGroup]="formularioLogin">
+				<label for="chk" aria-hidden="true" class="title">Iniciar Sesion</label>
+				<input type="email" name="email" formControlName="email" placeholder="Email" required=""
+					[(ngModel)]="email">
+				<span *ngIf="this.formularioLogin.get('email')?.hasError('email')" class="text-danger">
+					Ingrese un correo válido</span>
+				<input type="password" name="contraseña" formControlName="contraseña" placeholder="Contraseña"
+					required="" [(ngModel)]="password">
+				<span *ngIf="this.formularioLogin.get('contraseña')?.hasError('minlength')" class="text-danger">
+					Un mínimo de 6 caracteres</span>
+				<button (click)="ingresar()">Ingresar</button>
+				<div class="row">
+					<button class="btnAccesoRapidoLogin" (click)="ingresarInvitado()">Acceso Invitado</button>
+					<button class="btnAccesoRapidoLogin" (click)="ingresarAdmin()">Acceso Admin</button>
+				</div>
+
+			</form>
+		</div>
+
+		<div class="signup">
+			<form [formGroup]="formularioRegistro">
+				<label for="chk" aria-hidden="true">Registrate</label>
+				<input type="text" name="text" name="nombreUsuario" formControlName="nombreUsuario"
+					placeholder="Nombre Completo" [(ngModel)]="nombreUser" required="">
+				<span *ngIf="this.formularioRegistro.get('nombreUsuario')?.hasError('maxlength')" class="text-danger">
+					Tiene un máximo de 30 caracteres</span>
+				<input type="email" name="email" name="emailRegistro" formControlName="emailRegistro"
+					placeholder="Email" [(ngModel)]="emailRegistro" required="">
+				<span *ngIf="this.formularioRegistro.get('emailRegistro')?.hasError('email')" class="text-danger">
+					Ingrese un correo válido
+				</span>
+					<input type="password" name="pswd" name="passwordRegistro" formControlName="passwordRegistro"
+						placeholder="Contraseña (min. 6 caract.)" [(ngModel)]="passwordRegistro" required="">
+					<span *ngIf="this.formularioRegistro.get('passwordRegistro')?.hasError('minlength')"
+						class="text-danger">
+						Un mínimo de 6 caracteres
+					</span>
+						<button (click)="guardar()">Registrar</button>
+						<button class="btnAccesoRapido" (click)="registrarInvitado()">Registrar Invitado</button>
+
+			</form>
+
+		</div>
+	</div>
+</div>

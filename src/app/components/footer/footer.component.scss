@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch&family=Josefin+Sans&display=swap');
+
+footer{
+	width: 100%;
+	min-height: 5vh;
+	background-color: rgba(1, 1, 1, 0.9);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+    flex-direction: column;
+	font-style: italic;
+	font-family: 'Chakra Petch', sans-serif !important;
+	font-weight: 400;
+	a{
+		color: aliceblue;
+		text-decoration: none !important;
+	}
+	
+	.info{
+		margin-top: 10px;
+        margin-bottom: -10px;
+	}
+
+
+	
+}

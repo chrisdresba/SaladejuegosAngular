@@ -52,8 +52,7 @@ export class NavComponent implements OnInit {
     signOut(auth).then(() => {
       this.usuarioLogin = '';
       this.servicioAuth.desloguearse();
-      localStorage.removeItem('sesionSala');
-      localStorage.removeItem('sesionSalaRol');
+      localStorage.clear();
       this.auth2 = false;
       this.admin = false;
       this.router.navigate(['/home']);

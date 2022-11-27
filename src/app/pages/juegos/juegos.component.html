@@ -1,0 +1,42 @@
+<div id="container">
+  <div class="d-flex justify-content-center loading" role="status" [hidden]="!loading">
+    <img id="spinner" [hidden]="!loading" src="../../assets/img/loading.gif" alt="Sala de Juegos" />
+  </div>
+  <div class="row col-12 box" [hidden]="loading">
+  <div class="items col-md-3">
+    <img src="../../../../assets/img/ahorcado.png" class="card-img-top fade-in-fwd zoom" alt="ahorcado">
+    <div class="card-body">
+      <h5 class="card-title">Ahorcado</h5>
+      <p class="card-text">Puedes descubrir rápidamente cada una de estas palabras ocultas? Vamos, ponte a prueba</p>
+      <a routerLink="/juegos/ahorcado" class="btn btn-grad shake-top heartbeat1 ">Comenzar</a>
+    </div>
+  </div>
+  <div class="items col-md-3">
+    <img src="./../../../assets/img/mayoromenor.png" class="card-img-top fade-in-fwd zoom" alt="Mayor o menor">
+    <div class="card-body">
+      <h5 class="card-title">Mayor o menor</h5>
+      <p class="card-text">Tienes que adivinar si la proxima carta es mayor o menor. No puedes cometer ningún error.
+      </p>
+      <a routerLink="/juegos/mayormenor" class="btn btn-grad shake-top heartbeat2">Comenzar</a>
+    </div>
+  </div>
+  <div class="items col-md-3">
+    <img src="../../../../assets/img/preguntados.png" class="card-img-top fade-in-fwd zoom" alt="preguntados">
+    <div class="card-body">
+      <h5 class="card-title">Preguntados</h5>
+      <p class="card-text">Adivina las respuestas de seis categorías diferentes: geografía, historia, arte, ciencia.
+      </p>
+      <a routerLink="/juegos/preguntados" class="btn btn-grad shake-top heartbeat3">Comenzar</a>
+    </div>
+  </div>
+</div>
+</div>
+
+<footer>
+  <a class="info">
+    <p class="copy"> Aplicación desarrollada en Laboratorio IV</p>
+  </a>
+  <a class="name" href="https://github.com/chrisdresba" target="_blank">
+    <p class="copy">Cristian Barraza ©2022</p>
+  </a>
+</footer>

@@ -1,0 +1,142 @@
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+	font-family: 'Poppins', sans-serif;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+
+.box {
+	min-height: 100vh;
+	background: #274553;
+}
+
+#container {
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 90vh;
+	font-family: 'Jost', sans-serif;
+	color: #fff;
+	overflow: hidden;
+}
+
+h1 {
+	color: #fff;
+}
+
+.mensajes {
+	width: 95%;
+	height: 80vh;
+	background: url("../../../assets/img/fondoChat.jpeg") no-repeat center;
+	background-size: cover;
+	margin: 0;
+	margin-top: 5rem;
+	display: flex;
+	flex-direction: column;
+	padding: 10px;
+	padding-bottom: 0;
+	border: 1px solid black;
+	margin-bottom: 0;
+	overflow-y: scroll;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+.box-listado {
+	margin-top: 1em;
+	height: 90%;
+	margin-bottom: 1em;
+}
+
+.box-mensaje {
+	width: 95%;
+	height: 30px;
+}
+
+.submit {
+	justify-content: center;
+	align-items: center;
+	margin-left: 5%;
+	margin-top: -1em;
+}
+
+.input {
+	width: 100%;
+	background-color: #fff;
+	border-bottom-left-radius: 5px;
+	border-bottom: 1px solid black;
+	border-left: 1px solid black;
+	border-top: 1px solid black;
+}
+
+input::placeholder{
+	display: flex;
+	text-align:center
+}
+
+.no-sesion {
+	display: flex;
+	margin: 0;
+	justify-content: center;
+	align-items: center;
+}
+
+h1 {
+	font-size: 4rem;
+}
+
+button {
+	width: 8rem;
+	height: 3rem;
+	border-radius: 2rem;
+	background-color: #0d6efd;
+}
+
+.boton {
+	width: 100px !important;
+	border-bottom-right-radius: 5px;
+	border: 1px solid black;
+	background-color: #8f97a2;
+	color: white;
+	font-weight: 600;
+}
+
+.boton:hover,
+.boton:focus {
+	color: white;
+	background-color: #5f646c;
+}
+
+
+#spinner {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	z-index: 10;
+	width: 220px;
+	height: 220px;
+}
+
+@media only screen and (min-width: 280px) and (max-width: 676px) {
+
+	.box-listado {
+		margin-left: -10%;
+	}
+
+	#container {
+		overflow: hidden
+	}
+
+	h1 {
+		font-size: 1.5rem;
+		margin: 1em;
+	}
+
+}

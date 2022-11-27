@@ -6,5 +6,6 @@
     "SalaDeJuegos": "saladejuegos-barraza",
     "Sala de Juegos": "saladejuegos-barraza"
   },
-  "targets": {}
+  "targets": {},
+  "etags": {}
 }
