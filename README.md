@@ -16,6 +16,8 @@ Puede acceder al proyecto desde el siguiente [link](https://saladejuegos-barraza
 
 ![](https://github.com/chrisdresba/SaladejuegosAngular/blob/main/AppImg/home2.png?raw=true)
 
+![](https://github.com/chrisdresba/SaladejuegosAngular/blob/main/AppImg/home3.png?raw=true)
+
 **Login**  
 
 *Desde aquí podremos iniciar sesión con nuestro mail y contraseña, ambos datos son requeridos para ingresar correctamente.*    
