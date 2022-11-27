@@ -9,6 +9,8 @@ import { Page404Component } from '../page404/page404.component';
 import { JuegosRoutingModule } from './juegos-routing.module';
 import { FormsModule, ReactiveFormsModule, } from '@angular/forms';
 import { NotimageDirective } from '../../directivas/notimage.directive';
+import { FooterComponent } from 'src/app/components/footer/footer.component';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 
 @NgModule({
@@ -23,6 +25,7 @@ import { NotimageDirective } from '../../directivas/notimage.directive';
   imports: [
     CommonModule,
     JuegosRoutingModule,
+    ComponentsModule,
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule

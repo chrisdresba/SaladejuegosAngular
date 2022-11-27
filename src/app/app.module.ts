@@ -19,6 +19,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { EncuestasComponent } from './pages/encuestas/encuestas.component';
 import { CookieService } from 'ngx-cookie-service';
 import { FooterComponent } from './components/footer/footer.component';
+import { ComponentsModule } from './components/components.module';
 
 
 @NgModule({
@@ -27,17 +28,16 @@ import { FooterComponent } from './components/footer/footer.component';
     LoginComponent,
     HomeComponent,
     QuienSoyComponent,
-    NavComponent,
     ChatComponent,
     ListadoMensajesComponent,
     EncuestaComponent,
     ResultadosComponent,
     EncuestasComponent,
-    FooterComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ComponentsModule,
     HttpClientModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
