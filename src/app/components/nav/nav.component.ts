@@ -55,7 +55,7 @@ export class NavComponent implements OnInit {
       localStorage.clear();
       this.auth2 = false;
       this.admin = false;
-      this.router.navigate(['/home']);
+      this.router.navigate(['/login']);
     }).catch((error) => {
 
     });

@@ -1,21 +1,16 @@
 <div id="container" class="row">
-  <!--CARUSSEL-->
-  <mdb-carousel [isControls]="false" class="carousel slide carousel-fade" [animation]="'fade'">
-    <mdb-carousel-item class="itemCarousel">
-      <a routerLink="/juegos">
-        <img class="d-block imagenCarousel" src='../../../assets/img/carrusel1.png' alt="First slide"
-          title="Juegos"></a>
-    </mdb-carousel-item>
-    <mdb-carousel-item class="itemCarousel">
-      <a routerLink="/juegos"><img class="d-block imagenCarousel" src='../../../assets/img/carrusel2.png'
-          alt="Second slide" title="Juegos"></a>
-    </mdb-carousel-item>
-    <mdb-carousel-item class="itemCarousel">
-      <a routerLink="/juegos"><img class="d-block imagenCarousel" src='../../../assets/img/carrusel3.png'
-          alt="Third slide" title="Juegos"></a>
-    </mdb-carousel-item>
-  </mdb-carousel>
-
+  <!--VIDEO-->
+<div class="video-wrapper">
+  <video playsinline autoplay muted loop poster="../../../assets/img/background.png">
+    <source src="../../../assets/background.mp4" type="video/mp4">
+    Su navegador no soporta el video.
+  </video>
+  <div class="header">
+    <h1 class="blink-2">INICIA EL JUEGO</h1>
+    <img src="../../../assets/img/flecha.png" class="heartbeat" (click)="irJuegos()" alt="">
+  </div>
+</div>
+ 
   <!--BARRA JUEGOS-->
 
   <div class="barraJuegos color-change-2x">
@@ -25,6 +20,7 @@
     </div>
     <button routerLink="/juegos">Ver todos!</button>
   </div>
+
   <!--JUEGOS-->
   <section *ngIf="sesion">
   <div class="album py-5 col-10 row">

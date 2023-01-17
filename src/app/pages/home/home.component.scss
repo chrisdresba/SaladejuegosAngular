@@ -17,24 +17,55 @@
 	min-height: 100vh;
 	font-family: 'Jost', sans-serif;
 	background: #537e88;
-	//background-image: linear-gradient(to right, #243949 0%, #517fa4 100%);
 }
 
+////
+video {
+	object-fit: cover;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+}
+
+.video-wrapper {
+	width: 100vw;
+	height: 100vh;
+	position: relative;
+	overflow: hidden;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.header {
+	position: relative;
+	color: white;
+	display: flex;
+	height: 100vh;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+
+	h1{
+		font-family: 'Bangers', cursive;
+		font-size: 3rem;
+	}
+
+	img {
+		position: absolute;
+		width: 100px;
+		height: 80px;
+		bottom: 0;
+	}
+}
+
+/// 
 
 h1 {
 	color: #fff;
-}
-
-
-mdb-carousel {
-	float: inline-end;
-	margin-top: 3em;
-	background-image: linear-gradient(to right, #243949 0%, #517fa4 100%);
-}
-
-.imagenCarousel {
-	min-height: 80vh;
-	min-width: 100vw;
 }
 
 .album {
@@ -108,7 +139,6 @@ button:focus::before {
 .barraJuegos {
 	width: 100vw;
 	height: 50px;
-	margin-top: 30px;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
@@ -117,6 +147,7 @@ button:focus::before {
 	h3 {
 		font-family: 'Bangers', cursive;
 		color: #fff;
+		width: 100px;
 		margin-left: 20px;
 	}
 
@@ -133,20 +164,22 @@ button:focus::before {
 		font-weight: 700;
 		text-align: center;
 		border-radius: 8px;
-		padding: 5px 8px 5px 14px;
+		width: 100px;
+		padding: 4px 5px 4px 5px;
 
 	}
 }
 
 .zoom {
-    transition: transform .2s; 
-}
- 
-.zoom:hover {
-    transform: scale(1.05); 
+	transition: transform .2s;
 }
 
-section{
+.zoom:hover {
+	transform: scale(1.05);
+}
+
+
+section {
 	margin: 0;
 	padding: 0;
 	display: flex;
@@ -310,123 +343,147 @@ section{
 	}
 }
 
-
-.color-change-2x {
-	-webkit-animation: color-change-2x 2s linear infinite alternate both;
-	        animation: color-change-2x 2s linear infinite alternate both;
+.blink-2 {
+	-webkit-animation: blink-2 2s linear infinite both;
+	        animation: blink-2 2s linear infinite both;
 }
- 
- @-webkit-keyframes color-change-2x {
-	0% {
-	  background: #06090c;
-	}
-	100% {
-	  background: #182129;
-	}
-  }
-  @keyframes color-change-2x {
-	0% {
-	  background: #06090c;
-	}
-	100% {
-	  background: #182129;
-	}
-  }
 
-  .heartbeat {
+
+ @-webkit-keyframes blink-2 {
+	0% {
+	  opacity: 1;
+	}
+	50% {
+	  opacity: 0.5;
+	}
+	100% {
+	  opacity: 1;
+	}
+  }
+  @keyframes blink-2 {
+	0% {
+	  opacity: 1;
+	}
+	50% {
+	  opacity: 0.5;
+	}
+	100% {
+	  opacity: 1;
+	}
+  }
+  
+
+.heartbeat {
 	-webkit-animation: heartbeat 2s ease-in-out infinite both;
-	        animation: heartbeat 2s ease-in-out infinite both;
+	animation: heartbeat 2s ease-in-out infinite both;
 }
 
- @-webkit-keyframes heartbeat {
+@-webkit-keyframes heartbeat {
 	from {
-	  -webkit-transform: scale(1);
-			  transform: scale(1);
-	  -webkit-transform-origin: center center;
-			  transform-origin: center center;
-	  -webkit-animation-timing-function: ease-out;
-			  animation-timing-function: ease-out;
+		-webkit-transform: scale(1);
+		transform: scale(1);
+		-webkit-transform-origin: center center;
+		transform-origin: center center;
+		-webkit-animation-timing-function: ease-out;
+		animation-timing-function: ease-out;
 	}
+
 	10% {
-	  -webkit-transform: scale(0.91);
-			  transform: scale(0.91);
-	  -webkit-animation-timing-function: ease-in;
-			  animation-timing-function: ease-in;
+		-webkit-transform: scale(0.91);
+		transform: scale(0.91);
+		-webkit-animation-timing-function: ease-in;
+		animation-timing-function: ease-in;
 	}
+
 	17% {
-	  -webkit-transform: scale(0.98);
-			  transform: scale(0.98);
-	  -webkit-animation-timing-function: ease-out;
-			  animation-timing-function: ease-out;
+		-webkit-transform: scale(0.98);
+		transform: scale(0.98);
+		-webkit-animation-timing-function: ease-out;
+		animation-timing-function: ease-out;
 	}
+
 	33% {
-	  -webkit-transform: scale(0.87);
-			  transform: scale(0.87);
-	  -webkit-animation-timing-function: ease-in;
-			  animation-timing-function: ease-in;
+		-webkit-transform: scale(0.87);
+		transform: scale(0.87);
+		-webkit-animation-timing-function: ease-in;
+		animation-timing-function: ease-in;
 	}
+
 	45% {
-	  -webkit-transform: scale(1);
-			  transform: scale(1);
-	  -webkit-animation-timing-function: ease-out;
-			  animation-timing-function: ease-out;
+		-webkit-transform: scale(1);
+		transform: scale(1);
+		-webkit-animation-timing-function: ease-out;
+		animation-timing-function: ease-out;
 	}
-  }
-  @keyframes heartbeat {
+}
+
+@keyframes heartbeat {
 	from {
-	  -webkit-transform: scale(1);
-			  transform: scale(1);
-	  -webkit-transform-origin: center center;
-			  transform-origin: center center;
-	  -webkit-animation-timing-function: ease-out;
-			  animation-timing-function: ease-out;
+		-webkit-transform: scale(1);
+		transform: scale(1);
+		-webkit-transform-origin: center center;
+		transform-origin: center center;
+		-webkit-animation-timing-function: ease-out;
+		animation-timing-function: ease-out;
 	}
+
 	10% {
-	  -webkit-transform: scale(0.91);
-			  transform: scale(0.91);
-	  -webkit-animation-timing-function: ease-in;
-			  animation-timing-function: ease-in;
+		-webkit-transform: scale(0.91);
+		transform: scale(0.91);
+		-webkit-animation-timing-function: ease-in;
+		animation-timing-function: ease-in;
 	}
+
 	17% {
-	  -webkit-transform: scale(0.98);
-			  transform: scale(0.98);
-	  -webkit-animation-timing-function: ease-out;
-			  animation-timing-function: ease-out;
+		-webkit-transform: scale(0.98);
+		transform: scale(0.98);
+		-webkit-animation-timing-function: ease-out;
+		animation-timing-function: ease-out;
 	}
+
 	33% {
-	  -webkit-transform: scale(0.87);
-			  transform: scale(0.87);
-	  -webkit-animation-timing-function: ease-in;
-			  animation-timing-function: ease-in;
+		-webkit-transform: scale(0.87);
+		transform: scale(0.87);
+		-webkit-animation-timing-function: ease-in;
+		animation-timing-function: ease-in;
 	}
+
 	45% {
-	  -webkit-transform: scale(1);
-			  transform: scale(1);
-	  -webkit-animation-timing-function: ease-out;
-			  animation-timing-function: ease-out;
+		-webkit-transform: scale(1);
+		transform: scale(1);
+		-webkit-animation-timing-function: ease-out;
+		animation-timing-function: ease-out;
 	}
-  }
-  
-  
+}
+
+
 
 @media only screen and (min-width: 240px) and (max-width: 576px) {
 
 	.barraJuegos {
-		button {	
+		button {
 			display: flex;
 			text-align: center;
 			align-items: center;
 			width: 100px;
 			height: 40px;
-		font-size: 12px;}
+			font-size: 12px;
+		}
+	}
+
+	.header {
+		img {
+			width: 80px;
+			height: 60px;
+		}
 	}
 
 }
 
 @media only screen and (min-width: 250px) and (max-width: 400px) {
-    a,p{
-        font-size: 12px;
-    }
+
+	a,
+	p {
+		font-size: 12px;
+	}
 }
-
-

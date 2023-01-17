@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Usuario } from 'src/app/class/usuario';
+import { Usuario } from './../../class/usuario';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { DatePipe } from '@angular/common';
 
@@ -13,7 +13,7 @@ import {
 
 import Swal from 'sweetalert2';
 import { FirebaseService } from '../../services/firebase.service';
-import { AutentificadorService } from 'src/app/services/autentificador.service';
+import { AutentificadorService } from './../../services/autentificador.service';
 import { CookieService } from 'ngx-cookie-service';
 
 @Component({

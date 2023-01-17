@@ -11,6 +11,13 @@
   background-image: linear-gradient(to right, #243949 0%, #517fa4 100%);
 }
 
+.box {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
 img {
   width: 30px;
   height: 30px;
@@ -30,12 +37,9 @@ h6 {
   color: #fff;
   font-weight: 600;
   border: none !important;
-  position: absolute;
   padding: 8px;
   width: 110px;
   left: 100%;
-  transform: translatex(-100%);
-  margin-top: -1.3em;
   margin-left: -0.2em;
 }
 
@@ -69,8 +73,21 @@ h6 {
   padding: 0;
 }
 
-@media only screen and (min-width: 260px) and (max-width: 720px) {
+@media only screen and (min-width: 440px) and (max-width: 720px) {
 
+
+  #offcanvasNavbar {
+    background-image: linear-gradient(to right, #243949 0%, #517fa4 100%);
+    min-height: 100vh;
+    overflow-y: scroll;
+  }
+
+}
+
+@media only screen and (min-width: 240px) and (max-width: 440px) {
+  .navbar-brand {
+    font-size: 1em;
+  }
   #btnLogin,
   #btnSesion {
     width: 70px;
@@ -81,22 +98,13 @@ h6 {
     color: #fff !important;
     font-size: 1em;
   }
-
-  .navbar-brand {
-    margin-left: -20vw;
-
-  }
-
-  #offcanvasNavbar {
-    background-image: linear-gradient(to right, #243949 0%, #517fa4 100%);
-    min-height: 100vh;
-    overflow-y: scroll;
-  }
-
 }
 
 
 .text-flicker-in-glow {
+  display: flex;
+  justify-content: center;
+  margin-left: 50%;
   -webkit-animation: text-flicker-in-glow 1s linear both;
   animation: text-flicker-in-glow 1s linear both;
 }

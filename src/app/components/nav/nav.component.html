@@ -1,5 +1,5 @@
 <nav class="navbar fixed-top" id="menu">
-    <div class="container-fluid">
+    <div class="container-fluid box">
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
             aria-controls="offcanvasNavbar">
             <img src="assets/img/menu.png" alt="">
@@ -35,7 +35,9 @@
                 </ul>
             </div>
         </div>
-        <a class="navbar-brand text-flicker-in-glow" routerLink="/home">Sala  de  Juegos</a>
+        <div>
+            <a class="navbar-brand text-flicker-in-glow" routerLink="/home">Sala  de  Juegos</a>
+        </div>
         <form class="d-flex">
             <input [hidden]="auth2" type="button" id="btnLogin" (click)="redirigirLogin()"
             class="btn btn-outline-dark" value="Ingresar">

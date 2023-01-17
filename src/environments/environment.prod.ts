@@ -1,7 +1,6 @@
 export const environment = {
   production: true,
   firebase:{
-  /* KEY FIREBASE*/  
-  
+  /* CLAVE FIREBASE*/
   }
 };

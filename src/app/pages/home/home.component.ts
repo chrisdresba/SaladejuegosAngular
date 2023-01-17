@@ -14,12 +14,9 @@ export class HomeComponent implements OnInit {
 
   public getScreenHeight: any;
   public sesion:boolean = false;
+
   constructor(   public viewportScroller: ViewportScroller,  public afAuth: AngularFireAuth) { 
-    
   }
-
-
-
 
   ngOnInit(): void {
     this.getScreenHeight = window.innerHeight;
